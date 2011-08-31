@@ -1,0 +1,22 @@
+﻿@model Lettings.Web.Mvc.Controllers.ViewModels.LoginModel
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using(Html.BeginForm("Login", "Authentication")){
+    
+    @Html.LabelFor(x=>x.EmailAddress)
+    @Html.TextAreaFor(x=>x.EmailAddress)
+
+    @Html.LabelFor(x=>x.Password)
+    @Html.TextAreaFor(x=>x.Password)
+
+    <small>@Html.LabelFor(x => x.PersistentLogin)</small>
+    @Html.CheckBoxFor(x=>x.PersistentLogin)
+
+    <input type="submit" value="Log in" />
+    
+}
+
+

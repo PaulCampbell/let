@@ -10,7 +10,7 @@ namespace Lettings.Domain
     {
         private User _landlord;
         public virtual User Landlord { get { return _landlord; } }
-        public bool SetLandlord(User landlord)
+        public virtual bool SetLandlord(User landlord)
         {
             if (_landlord.UserType == UserType.landlord)
             {
@@ -64,6 +64,11 @@ namespace Lettings.Domain
             ManagingOffice = office;
             Pictures = new List<PropertyPicture>();
         }
+
+        protected RentalProperty()
+        {
+        }
+
 
         public virtual void SetPreferredPicture(PropertyPicture picture)
         {

@@ -20,5 +20,9 @@ namespace Lettings.Domain
         {
             Agent = agent;
         }
+
+        protected Office()
+        {
+        }
     }
 }

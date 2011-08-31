@@ -33,7 +33,12 @@ namespace Lettings.Domain
             UserType = type;
         }
 
-        private void SetAddress(string postcode, string addressLine1, string addressLine2, string houseNumber, string town)
+        protected User()
+        {
+
+        }
+
+        private  void SetAddress(string postcode, string addressLine1, string addressLine2, string houseNumber, string town)
         {
             Postcode = postcode; AddressLine1 = addressLine1;
             AddressLine2 = addressLine2; HouseNumber = houseNumber;

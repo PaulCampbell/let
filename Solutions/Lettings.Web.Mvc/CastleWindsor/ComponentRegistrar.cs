@@ -61,10 +61,9 @@ namespace Lettings.Web.Mvc.CastleWindsor
                     .Named("entityDuplicateChecker"));
 
             container.Register(
-                Component.For(typeof(INHibernateRepository<>))
-                    .ImplementedBy(typeof(NHibernateRepository<>))
-                    .Named("nhibernateRepositoryType")
-                    .Forward(typeof(IRepository<>)));
+                Component.For(typeof(ILinqRepository<>))
+                    .ImplementedBy(typeof(LinqRepository<>))
+                    .Named("nhibernateRepositoryType"));
 
             container.Register(
                 Component.For(typeof(INHibernateRepositoryWithTypedId<,>))

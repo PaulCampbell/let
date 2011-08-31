@@ -13,7 +13,7 @@ namespace Lettings.Domain
         public virtual bool PreferredPicture { get { return _preferredPicture; } }
         public virtual PictureType PictureType { get; set; }
        
-        internal virtual void SetPreferredPicture(bool preferred)
+        public virtual void SetPreferredPicture(bool preferred)
         {
             _preferredPicture = preferred;
         }

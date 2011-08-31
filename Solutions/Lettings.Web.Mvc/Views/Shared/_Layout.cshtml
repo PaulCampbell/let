@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head id="Head1" runat="server">
@@ -14,33 +14,8 @@
 </head>
 
 <body>
-    <div class="page">
-        <div id="mainContent">
-            <div class="columnsContainer">
-                <div class="leftColumn">
-                    <p>
-                        <img src="../../Content/img/sharp_arch.jpg" />
-                    </p>
-                    <h2>Lettings Pages</h2>
-                    <ul>
-                        <li>@(Html.ActionLink<HomeController>(c => c.Index(), "Home"))</li>
-                    </ul>
-                </div>
-                <!--/leftColumn-->
-
-                <div class="rightColumn">
+  
                     @RenderBody()
-                </div><!--/rightColumn-->
-
-                <div class="clear">
-                </div>
-
-            </div><!--/columnsContainer-->
-
-            <div id="sharpArchLogo"></div>
-
-        </div><!--/mainContent-->
-
-    </div><!--/page-->
+             
 </body>
 </html>
