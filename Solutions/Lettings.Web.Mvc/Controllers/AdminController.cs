@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Lettings.Web.Mvc.Helpers.Attributes;
 using Lettings.Domain;
 using SharpArch.Domain.PersistenceSupport;
+using Lettings.Web.Mvc.Controllers.ViewModels;
 
 namespace Lettings.Web.Mvc.Controllers 
 {
@@ -15,18 +16,23 @@ namespace Lettings.Web.Mvc.Controllers
     {
         private readonly ILinqRepository<RentalProperty> _propertyRepository;
         private readonly ILinqRepository<User> _userRepository;
-
+        private readonly ILinqRepository<Agent> _agentRepository;
 
         public AdminController(ILinqRepository<RentalProperty> propertyRepository,
-           ILinqRepository<User> userRepository)
+           ILinqRepository<User> userRepository, ILinqRepository<Agent> agentRepository)
         {
             _propertyRepository = propertyRepository;
             _userRepository = userRepository;
+            _agentRepository = agentRepository;
         }
 
+        [Transation]
         public ActionResult Index()
         {
-            return View();
+            var model = new AdminIndexView();
+            var agents = _agentRepository.FindAll().ToList();
+            model.Agents = AutoMapper.Mapper.Map<List<Agent>, List<AgentSummaryView>>(agents);
+            return View(model);
         }
 
         public ActionResult Users()

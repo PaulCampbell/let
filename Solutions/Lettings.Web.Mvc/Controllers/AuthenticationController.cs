@@ -67,12 +67,13 @@ namespace Lettings.Web.Mvc.Controllers
             switch (this.ExecutingUser.UserType)
             {
                 case  UserType.admin :
-                    RedirectToAction("Index", "Admin");
-                    break;
+                    return RedirectToAction("Index", "Admin");
 
-                case UserType.landlord :
-                    RedirectToAction("");
-                    break;
+                case UserType.employee :
+                    return RedirectToAction("");
+
+                case UserType.manager:
+                    return RedirectToAction("");
 
                 default:
                     // we're not dealing with anyone else here...

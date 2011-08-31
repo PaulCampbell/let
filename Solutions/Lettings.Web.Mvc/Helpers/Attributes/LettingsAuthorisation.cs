@@ -20,6 +20,10 @@ namespace Lettings.Web.Mvc.Helpers.Attributes
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
             var user = (User)httpContext.Session["ExecutingUser"];
+            if (user == null)
+            {
+                user = (User)httpContext.Session["LoggedInUser"];
+            }
 
             if (!_userTypes.Any(ut=>ut==user.UserType))
                 return false;

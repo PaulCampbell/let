@@ -142,6 +142,7 @@
     <Compile Include="..\..\Common\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="CastleWindsor\AutoMapper.cs" />
     <Compile Include="CastleWindsor\AutomappingConfiguration.cs" />
     <Compile Include="CastleWindsor\ComponentRegistrar.cs" />
     <Compile Include="Controllers\AdminController.cs" />
@@ -154,6 +155,9 @@
     <Compile Include="Controllers\RentalPropertyController.cs" />
     <Compile Include="Controllers\RouteRegistrar.cs" />
     <Compile Include="Controllers\TenantController.cs" />
+    <Compile Include="Controllers\Transation.cs" />
+    <Compile Include="Controllers\ViewModels\AdminIndexView.cs" />
+    <Compile Include="Controllers\ViewModels\AgentSummaryView.cs" />
     <Compile Include="Controllers\ViewModels\DatedPropertyNoteView.cs" />
     <Compile Include="Controllers\ViewModels\LandlordView.cs" />
     <Compile Include="Controllers\ViewModels\LoginModel.cs" />
