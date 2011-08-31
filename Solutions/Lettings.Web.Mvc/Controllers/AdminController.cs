@@ -10,7 +10,7 @@ using SharpArch.Domain.PersistenceSupport;
 namespace Lettings.Web.Mvc.Controllers 
 {
     // only admin users can go here!
-    [LettingsAuthorisation(new List<UserType>{{UserType.admin}})]
+    [LettingsAuthorisation(new UserType[] { UserType.admin })]
     public class AdminController : BaseController
     {
         private readonly ILinqRepository<RentalProperty> _propertyRepository;

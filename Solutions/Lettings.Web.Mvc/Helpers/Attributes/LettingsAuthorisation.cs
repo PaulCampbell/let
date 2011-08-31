@@ -9,9 +9,9 @@ namespace Lettings.Web.Mvc.Helpers.Attributes
 {
     public class LettingsAuthorisation : AuthorizeAttribute
     {
-        List<UserType> _userTypes;
+        UserType[] _userTypes;
 
-        public LettingsAuthorisation(List<UserType> userTypes)
+        public LettingsAuthorisation(UserType[] userTypes)
         {
             _userTypes = userTypes;
         }

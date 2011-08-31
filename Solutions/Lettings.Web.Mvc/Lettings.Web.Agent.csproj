@@ -141,18 +141,28 @@
     </Compile>
     <Compile Include="CastleWindsor\AutomappingConfiguration.cs" />
     <Compile Include="CastleWindsor\ComponentRegistrar.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AgentManagementController.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LandlordController.cs" />
     <Compile Include="Controllers\Queries\RentalPropertiesByAgentSpec.cs" />
     <Compile Include="Controllers\RentalPropertyController.cs" />
     <Compile Include="Controllers\RouteRegistrar.cs" />
+    <Compile Include="Controllers\TenantController.cs" />
+    <Compile Include="Controllers\ViewModels\DatedPropertyNoteView.cs" />
     <Compile Include="Controllers\ViewModels\LandlordView.cs" />
     <Compile Include="Controllers\ViewModels\LoginModel.cs" />
+    <Compile Include="Controllers\ViewModels\OfficeView.cs" />
+    <Compile Include="Controllers\ViewModels\PropertyPicture.cs" />
+    <Compile Include="Controllers\ViewModels\PropertySummaryView.cs" />
     <Compile Include="Controllers\ViewModels\RentalPropertiesView.cs" />
+    <Compile Include="Controllers\ViewModels\RentalPropertyView.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Attributes\LettingsAuthorisation.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\img\sharp_arch.jpg" />

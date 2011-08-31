@@ -13,7 +13,7 @@ using Lettings.Web.Mvc.Helpers.Attributes;
 namespace Lettings.Web.Mvc.Controllers
 {
     // This is for managing rental properties...
-    [LettingsAuthorisation(new List<UserType>{{UserType.employee}, {UserType.manager}})]
+    [LettingsAuthorisation(new UserType[] {  UserType.employee , UserType.manager })]
     public class RentalPropertyController : BaseController
     {
         private readonly ILinqRepository<RentalProperty> _propertyRepository;

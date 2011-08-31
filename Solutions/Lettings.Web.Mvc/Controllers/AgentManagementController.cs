@@ -9,7 +9,7 @@ using Lettings.Web.Mvc.Helpers.Attributes;
 namespace Lettings.Web.Mvc.Controllers
 {
     // this is for letting managers maintain their Agent's useraccounts etc.
-    [LettingsAuthorisation(new List<UserType> { { UserType.admin }, {UserType.manager })]
+    [LettingsAuthorisation(new UserType[] {  UserType.admin , UserType.manager })]
     public class AgentManagementController : Controller
     {
         

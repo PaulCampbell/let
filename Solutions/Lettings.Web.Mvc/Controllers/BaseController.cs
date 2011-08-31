@@ -9,9 +9,9 @@ namespace Lettings.Web.Mvc.Controllers
 {
     public class BaseController : Controller
     {
-        public User LoggedInUser
+        public void SetLoggedInUser(User user)
         {
-            set { Session["LoggedInUser"] = value; }
+            Session["LoggedInUser"] = user; 
         }
 
 

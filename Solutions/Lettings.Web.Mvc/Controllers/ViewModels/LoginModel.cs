@@ -14,5 +14,7 @@ namespace Lettings.Web.Mvc.Controllers.ViewModels
         [Required(ErrorMessage = "Password required")]
         public string Password { get; set; }
 
+        public bool PersistentLogin { get; set; }
+
     }
 }
