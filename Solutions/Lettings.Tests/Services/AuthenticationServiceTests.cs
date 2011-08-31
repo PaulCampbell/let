@@ -8,6 +8,7 @@ using SharpArch.Domain.PersistenceSupport;
 using Lettings.Domain;
 using Lettings.Domain.Services.Interfaces;
 using NSubstitute;
+using Lettings.Domain.Contracts.Queries;
 
 namespace Lettings.Tests.Services
 {
@@ -18,14 +19,13 @@ namespace Lettings.Tests.Services
         private ILinqRepository<User> _userRepository;
         private IPasswordHashingService _passwordHashingService;
 
-        [SetUp]
-        public void OneTimeSetUp()
+        [TestFixtureSetUp]
+        public void EachTestSetUp()
         {
-            _authService = new AuthenticationService(_userRepository, _passwordHashingService);
             _passwordHashingService = Substitute.For<IPasswordHashingService>();
             _passwordHashingService.ComputeHash("somestring", new byte[4]).ReturnsForAnyArgs("hashedPassword");
-
-
+            _userRepository = Substitute.For<ILinqRepository<User>>();
+            _authService = new AuthenticationService(_userRepository, _passwordHashingService);
         }
 
         [Test]
@@ -44,6 +44,27 @@ namespace Lettings.Tests.Services
             var result = _authService.UpdatePassword(new User(), newPassword);
 
             Assert.AreEqual(UpdatePasswordResult.successful, result);
+        }
+
+        [Test]
+        public void wrong_email_address_cannot_log_in()
+        {
+           var result = _authService.Login("invalidAddress", "SomePassword");
+
+            Assert.AreEqual(LoginResult.unsuccessful, result);
+        }
+
+        [Test]
+        public void wrong_password_cannot_log_in()
+        { 
+            var lookupSpec = new UserByEmailSpecication("someAddress");
+            _userRepository.FindOne(lookupSpec).ReturnsForAnyArgs(new User());
+            _passwordHashingService.VerifyHash("wrongpass", "SomeHash").ReturnsForAnyArgs(false);
+        
+
+            var result = _authService.Login("someAddress", "SomePassword");
+
+            Assert.AreEqual(LoginResult.unsuccessful, result);
         }
     }
 }

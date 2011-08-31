@@ -28,7 +28,7 @@ namespace Lettings.Domain.Services
                 return LoginResult.unsuccessful;
             }
 
-            if (u.HashedPassword != password)
+            if (!_passwordHashingService.VerifyHash( password, u.HashedPassword))
             {
                 return LoginResult.unsuccessful;
             }
