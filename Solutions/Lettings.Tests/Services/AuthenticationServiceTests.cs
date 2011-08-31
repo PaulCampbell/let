@@ -32,7 +32,7 @@ namespace Lettings.Tests.Services
         public void password_minimum_five_charaters()
         {
             var newPassword = "four";
-            var result = _authService.UpdatePassword(new User(), newPassword);
+            var result = _authService.UpdatePassword(new User(new Agent(), UserType.employee), newPassword);
 
             Assert.AreEqual(UpdatePasswordResult.notLongEnough, result);
         }
@@ -41,7 +41,7 @@ namespace Lettings.Tests.Services
         public void valid_password_can_be_updated()
         {
             var newPassword = "aNewValidPassword";
-            var result = _authService.UpdatePassword(new User(), newPassword);
+            var result = _authService.UpdatePassword(new User(new Agent(), UserType.employee), newPassword);
 
             Assert.AreEqual(UpdatePasswordResult.successful, result);
         }
@@ -60,7 +60,7 @@ namespace Lettings.Tests.Services
         public void wrong_password_cannot_log_in()
         { 
             var lookupSpec = new UserByEmailSpecication("someAddress");
-            _userRepository.FindOne(lookupSpec).ReturnsForAnyArgs(new User());
+            _userRepository.FindOne(lookupSpec).ReturnsForAnyArgs(new User(new Agent(), UserType.employee));
             _passwordHashingService.VerifyHash("wrongpass", "SomeHash").ReturnsForAnyArgs(false);
         
 
@@ -73,7 +73,7 @@ namespace Lettings.Tests.Services
         public void correct_password_and_email_can_log_in()
         {
             var lookupSpec = new UserByEmailSpecication("someAddress");
-            _userRepository.FindOne(lookupSpec).ReturnsForAnyArgs(new User());
+            _userRepository.FindOne(lookupSpec).ReturnsForAnyArgs(new User(new Agent(), UserType.employee));
             _passwordHashingService.VerifyHash("wrongpass", "SomeHash").ReturnsForAnyArgs(true);
 
             var result = _authService.Login("someAddress", "SomePassword");

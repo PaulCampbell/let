@@ -24,11 +24,6 @@ namespace Lettings.Tests.Services
         private RentalProperty _propertyAgent1;
         private RentalProperty _propertyAgent2;
 
-        private UserType _manager;
-        private UserType _employee;
-        private UserType _tenant;
-        private UserType _admin;
-        private UserType _landlord;
 
         private AuthorisationService _authorisationService;
 
@@ -41,27 +36,15 @@ namespace Lettings.Tests.Services
             var office1 = new Office(_agent1);
             var office2 = new Office(_agent2);
 
-            _manager = new UserType { Name = "Manager" };
-            _employee = new UserType { Name = "Employee" };
-            _tenant = new UserType { Name = "Tenant" };
-            _admin = new UserType { Name = "Admin" };
-            _landlord = new UserType { Name = "Landlord" };
-
-
-            _adminUser = new User { UserType = _admin };
-            _managerUserAgent1 = new User { UserType = _manager, Agent = _agent1 };
-            _employeeUserAgent1 = new User { UserType = _employee, Agent = _agent1 };
-            _tenantUserAgent1 = new User { UserType = _tenant, Agent = _agent1 };
+            _adminUser = new User(null, UserType.admin);
+            _managerUserAgent1 = new User(_agent1, UserType.manager);
+            _employeeUserAgent1 = new User(_agent1, UserType.employee);
+            _tenantUserAgent1 = new User(_agent1, UserType.tenant);
 
             _propertyAgent1 = new RentalProperty(office1);
             _propertyAgent2 = new RentalProperty(office2);
 
-            var userTypeRepo = Substitute.For<ILinqRepository<UserType>>();
-            var userTypes = new List<UserType> { { _landlord } , { _admin }, { _manager }, { _employee }, { _tenant } };
-           
-            userTypeRepo.FindAll().Returns(userTypes.AsQueryable());
-
-            _authorisationService = new AuthorisationService(userTypeRepo);
+            _authorisationService = new AuthorisationService();
         }
 
 

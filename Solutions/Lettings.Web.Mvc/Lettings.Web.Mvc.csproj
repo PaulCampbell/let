@@ -143,8 +143,13 @@
     <Compile Include="CastleWindsor\ComponentRegistrar.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LandlordController.cs" />
+    <Compile Include="Controllers\Queries\RentalPropertiesByAgentSpec.cs" />
+    <Compile Include="Controllers\RentalPropertyController.cs" />
     <Compile Include="Controllers\RouteRegistrar.cs" />
+    <Compile Include="Controllers\ViewModels\LandlordView.cs" />
     <Compile Include="Controllers\ViewModels\LoginModel.cs" />
+    <Compile Include="Controllers\ViewModels\RentalPropertiesView.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -182,9 +187,7 @@
   <ItemGroup>
     <Content Include="NHibernate.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controllers\Queries\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />

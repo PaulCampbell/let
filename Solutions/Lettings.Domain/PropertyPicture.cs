@@ -11,12 +11,24 @@ namespace Lettings.Domain
         public virtual string PictureUrl { get; set; }
         private  bool _preferredPicture;
         public virtual bool PreferredPicture { get { return _preferredPicture; } }
+        public virtual PictureType PictureType { get; set; }
        
         internal virtual void SetPreferredPicture(bool preferred)
         {
             _preferredPicture = preferred;
         }
-       
 
+        public PropertyPicture()
+        {
+            PictureType = PictureType.normal;
+        }
+
+    }
+
+    public enum PictureType
+    {
+        normal = 0,
+        floorplan = 1,
+        energyrating = 2
     }
 }

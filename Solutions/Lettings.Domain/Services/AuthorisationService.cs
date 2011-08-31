@@ -9,22 +9,15 @@ namespace Lettings.Domain.Services
 {
     public class AuthorisationService : IAuthorisationService
     {
-        private ILinqRepository<UserType> _userTypeRepository;
-
-        public AuthorisationService(ILinqRepository<UserType> userTypeRepository)
-        {
-            _userTypeRepository = userTypeRepository;
-        }
-
+ 
         public bool UserCanManageAgent(Agent agent, User user)
         {
-            var userTypes = _userTypeRepository.FindAll();
-            if (user.UserType == userTypes.First<UserType>(ut => ut.Name == "Admin"))
+            if (user.UserType == UserType.admin)
             {
                 return true;
             }
 
-            if (user.UserType == userTypes.First<UserType>(ut => ut.Name == "Manager"))
+            if (user.UserType == UserType.manager)
             {
                 if (user.Agent == agent)
                 {
@@ -37,13 +30,12 @@ namespace Lettings.Domain.Services
 
         public bool UserCanManageRentalProperty(RentalProperty property, User user)
         {
-            var userTypes = _userTypeRepository.FindAll().ToList();
-            if (user.UserType == userTypes.First<UserType>(ut => ut.Name == "Admin"))
+            if (user.UserType == UserType.admin)
             {
                 return true;
             }
 
-            if (user.UserType == userTypes.First<UserType>(ut => ut.Name == "Manager"))
+            if (user.UserType == UserType.manager)
             {
                 if (user.Agent == property.Agent)
                 {
@@ -51,7 +43,7 @@ namespace Lettings.Domain.Services
                 }
             }
 
-            if (user.UserType == userTypes.First<UserType>(ut => ut.Name == "Employee"))
+            if (user.UserType == UserType.employee)
             {
                 if (user.Agent == property.Agent)
                 {

@@ -83,8 +83,11 @@
     </Compile>
     <Compile Include="Agent.cs" />
     <Compile Include="Contracts\Queries\UserByEmailSpecication.cs" />
+    <Compile Include="DatedPropertyNote.cs" />
+    <Compile Include="ItemRegister.cs" />
     <Compile Include="Office.cs" />
     <Compile Include="PhoneNumber.cs" />
+    <Compile Include="PropertyItem.cs" />
     <Compile Include="PropertyPicture.cs" />
     <Compile Include="RentalProperty.cs" />
     <Compile Include="Services\AuthenticationService.cs" />
@@ -95,7 +98,6 @@
     <Compile Include="Services\PasswordHashingService.cs" />
     <Compile Include="Tenancy.cs" />
     <Compile Include="User.cs" />
-    <Compile Include="UserType.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

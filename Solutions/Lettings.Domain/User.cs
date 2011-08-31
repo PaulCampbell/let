@@ -41,4 +41,13 @@ namespace Lettings.Domain
         }
 
     }
+    public enum UserType
+    {
+        unknown = 0,
+        employee = 1,
+        manager = 2,
+        tenant = 3,
+        landlord = 4,
+        admin = 5
+    }
 }
