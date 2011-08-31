@@ -18,6 +18,7 @@ namespace Lettings.Web.Mvc.CastleWindsor
             AddQueryObjectsTo(container);
             AddTasksTo(container);
             AddCommandsTo(container);
+            AddServicesTo(container);
         }
 
         private static void AddTasksTo(IWindsorContainer container)
@@ -25,6 +26,15 @@ namespace Lettings.Web.Mvc.CastleWindsor
             container.Register(
                 AllTypes
                     .FromAssemblyNamed("Lettings.Tasks")
+                    .Pick()
+                    .WithService.FirstNonGenericCoreInterface("Lettings.Domain"));
+        }
+
+        private static void AddServicesTo(IWindsorContainer container)
+        {
+            container.Register(
+                AllTypes
+                    .FromAssemblyNamed("Lettings.Domain")
                     .Pick()
                     .WithService.FirstNonGenericCoreInterface("Lettings.Domain"));
         }

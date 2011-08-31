@@ -20,6 +20,19 @@ namespace Lettings.Domain
         public virtual decimal AdvertisedPricePerMonth { get; set; }
         public virtual decimal AdvertisedBondAmount { get; set; }
         public virtual IList<PropertyPicture> Pictures { get; set; }
+        public virtual bool Furnished { get; set; }
+        public virtual bool OnMarket { get; set; }
+        public virtual int ParkingSpaces { get; set; }
+
+        public virtual string Summary { get; set; }
+
+        // markdown or similar?
+        public virtual string DetailDescription { get; set; }
+
+        // markdown or similar?
+        public virtual string GeneralNotes { get; set; }
+
+        public virtual IList<DatedPropertyNote> DatedNotes { get; set; }
        
         public virtual DateTime Added { get; set; }
         public virtual User AddedBy { get; set; }
@@ -41,7 +54,7 @@ namespace Lettings.Domain
         {
             foreach (var p in Pictures)
             {
-                p.SetPreferredPicture( false);
+                p.SetPreferredPicture(false);
             }
 
             Pictures.Single(p => p == picture).SetPreferredPicture(true);
