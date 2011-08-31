@@ -81,7 +81,14 @@
     <Compile Include="..\..\Common\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="MyEntity1.cs" />
+    <Compile Include="Agent.cs" />
+    <Compile Include="Office.cs" />
+    <Compile Include="PhoneNumber.cs" />
+    <Compile Include="PropertyPicture.cs" />
+    <Compile Include="RentalProperty.cs" />
+    <Compile Include="Tenancy.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="UserType.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

@@ -83,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RentalPropertyTests.cs" />
     <Compile Include="ServiceLocatorInitializer.cs" />
   </ItemGroup>
   <ItemGroup>
