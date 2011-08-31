@@ -14,5 +14,6 @@ namespace Lettings.Domain
         public virtual DateTime EndDate { get; set; }
         public virtual decimal PricePerMonth { get; set; }
         public virtual decimal BondAmount { get; set; }
+        public virtual User AddedBy { get; set; }
     }
 }

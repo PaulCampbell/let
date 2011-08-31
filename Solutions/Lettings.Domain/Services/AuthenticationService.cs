@@ -9,7 +9,7 @@ using System.Security.Cryptography;
 
 namespace Lettings.Domain.Services
 {
-    public class AuthenticationService
+    public class AuthenticationService : IAuthenticationService
     {
         private readonly ILinqRepository<User> _userRepository;
         private readonly IPasswordHashingService _passwordHashingService;
@@ -36,11 +36,8 @@ namespace Lettings.Domain.Services
             return LoginResult.successful;
         }
 
-
-
         public UpdatePasswordResult UpdatePassword(User user, string newPassword)
         {
-
             if (newPassword.Length < 5)
             {
                 return UpdatePasswordResult.notLongEnough;

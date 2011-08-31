@@ -20,12 +20,13 @@ namespace Lettings.Domain
         public virtual decimal AdvertisedPricePerMonth { get; set; }
         public virtual decimal AdvertisedBondAmount { get; set; }
         public virtual IList<PropertyPicture> Pictures { get; set; }
-    
+       
+        public virtual DateTime Added { get; set; }
+        public virtual User AddedBy { get; set; }
+
         public virtual Agent Agent
-        { get
-            {
-                return Office.Agent;
-            }
+        { 
+            get{ return Office.Agent; }
         }
 
         public  RentalProperty(Office office)

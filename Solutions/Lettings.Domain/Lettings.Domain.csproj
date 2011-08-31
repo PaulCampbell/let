@@ -88,6 +88,9 @@
     <Compile Include="PropertyPicture.cs" />
     <Compile Include="RentalProperty.cs" />
     <Compile Include="Services\AuthenticationService.cs" />
+    <Compile Include="Services\AuthorisationService.cs" />
+    <Compile Include="Services\Interfaces\IAuthenticationService.cs" />
+    <Compile Include="Services\Interfaces\IAuthorisationService.cs" />
     <Compile Include="Services\Interfaces\IPasswordHashingService.cs" />
     <Compile Include="Services\PasswordHashingService.cs" />
     <Compile Include="Tenancy.cs" />

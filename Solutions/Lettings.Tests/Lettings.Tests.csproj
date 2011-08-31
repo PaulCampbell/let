@@ -89,6 +89,7 @@
     <Compile Include="RentalPropertyTests.cs" />
     <Compile Include="ServiceLocatorInitializer.cs" />
     <Compile Include="Services\AuthenticationServiceTests.cs" />
+    <Compile Include="Services\AuthorisationServiceTests.cs" />
     <Compile Include="Services\PasswordHashingServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>

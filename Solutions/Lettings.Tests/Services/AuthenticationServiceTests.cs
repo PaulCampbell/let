@@ -49,6 +49,8 @@ namespace Lettings.Tests.Services
         [Test]
         public void wrong_email_address_cannot_log_in()
         {
+            _userRepository = Substitute.For<ILinqRepository<User>>();
+            _authService = new AuthenticationService(_userRepository, _passwordHashingService);
            var result = _authService.Login("invalidAddress", "SomePassword");
 
             Assert.AreEqual(LoginResult.unsuccessful, result);
@@ -65,6 +67,18 @@ namespace Lettings.Tests.Services
             var result = _authService.Login("someAddress", "SomePassword");
 
             Assert.AreEqual(LoginResult.unsuccessful, result);
+        }
+
+        [Test]
+        public void correct_password_and_email_can_log_in()
+        {
+            var lookupSpec = new UserByEmailSpecication("someAddress");
+            _userRepository.FindOne(lookupSpec).ReturnsForAnyArgs(new User());
+            _passwordHashingService.VerifyHash("wrongpass", "SomeHash").ReturnsForAnyArgs(true);
+
+            var result = _authService.Login("someAddress", "SomePassword");
+
+            Assert.AreEqual(LoginResult.successful, result);
         }
     }
 }
