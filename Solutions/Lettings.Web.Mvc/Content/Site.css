@@ -4,5 +4,5 @@
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 .input-validation-error {
-  border-color: #fddfde;
+  border-color: red;
 }
