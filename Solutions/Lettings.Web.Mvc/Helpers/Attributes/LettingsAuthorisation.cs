@@ -25,6 +25,12 @@ namespace Lettings.Web.Mvc.Helpers.Attributes
                 user = (User)httpContext.Session["LoggedInUser"];
             }
 
+            if (user == null)
+            {
+                
+                return base.AuthorizeCore(httpContext);
+            }
+
             if (!_userTypes.Any(ut=>ut==user.UserType))
                 return false;
 

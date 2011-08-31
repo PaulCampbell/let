@@ -47,6 +47,8 @@
         {
             base.Init();
             this.webSessionStorage = new WebSessionStorage(this);
+
+      
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)
@@ -77,6 +79,8 @@
 
             AreaRegistration.RegisterAllAreas();
             RouteRegistrar.RegisterRoutesTo(RouteTable.Routes);
+
+            AutoMapperSetUp.ConfigureAutoMapper();
         }
 
         /// <summary>

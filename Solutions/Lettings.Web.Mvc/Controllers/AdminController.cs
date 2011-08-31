@@ -35,10 +35,25 @@ namespace Lettings.Web.Mvc.Controllers
             return View(model);
         }
 
-        public ActionResult Users()
+        [HttpGet]
+        public ActionResult AddAgent()
         {
-
             return View();
+        }
+
+        [HttpPost]
+        [Transation]
+        public ActionResult AddAgent(AddAgentModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            // we're valid - map to domain model and persist.
+           var agent = AutoMapper.Mapper.Map<AddAgentModel, Agent>(model);
+           _agentRepository.Save(agent);
+            return RedirectToAction("Index");
         }
 
         public ActionResult Agents()

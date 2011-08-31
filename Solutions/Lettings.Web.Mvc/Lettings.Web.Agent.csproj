@@ -142,7 +142,7 @@
     <Compile Include="..\..\Common\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="CastleWindsor\AutoMapper.cs" />
+    <Compile Include="CastleWindsor\AutoMapperSetUp.cs" />
     <Compile Include="CastleWindsor\AutomappingConfiguration.cs" />
     <Compile Include="CastleWindsor\ComponentRegistrar.cs" />
     <Compile Include="Controllers\AdminController.cs" />
@@ -156,6 +156,7 @@
     <Compile Include="Controllers\RouteRegistrar.cs" />
     <Compile Include="Controllers\TenantController.cs" />
     <Compile Include="Controllers\Transation.cs" />
+    <Compile Include="Controllers\ViewModels\AddAgentModel.cs" />
     <Compile Include="Controllers\ViewModels\AdminIndexView.cs" />
     <Compile Include="Controllers\ViewModels\AgentSummaryView.cs" />
     <Compile Include="Controllers\ViewModels\DatedPropertyNoteView.cs" />
@@ -215,6 +216,9 @@
     <Folder Include="Content\img\" />
     <Folder Include="Helpers\ExtensionMethods\" />
     <Folder Include="Views\RentalProperty\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Admin\AddAgent.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

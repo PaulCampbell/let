@@ -1,0 +1,32 @@
+﻿@model Lettings.Web.Mvc.Controllers.ViewModels.AddAgentModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("AddAgent", "Admin"))
+{
+
+<fieldset>
+<legend>Add new agent</legend>
+  @Html.ValidationSummary();
+    <div class="clearfix">
+    @Html.LabelFor(x=>x.Name)
+    <div class="input">
+    @Html.TextBoxFor(x => x.Name)
+    </div>
+    </div>
+      <div class="clearfix">
+    @Html.LabelFor(x=>x.PictureUrl)
+    <div class="input">
+    @Html.TextBoxFor(x => x.PictureUrl)
+    </div>
+    </div>
+    <div class="clearfix actions">
+    <input type="submit" value="Add agent &raquo;" class="btn" /> 
+    </div>
+</fieldset>
+
+}
+
+
