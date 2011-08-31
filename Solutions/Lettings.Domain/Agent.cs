@@ -7,7 +7,7 @@
     {
         public virtual string Name { get; set; }
         public virtual string PictureUrl { get; set; }
-        public virtual  IList<PhoneNumber> PhoneNumbers { get; set; }
+        public virtual IList<PhoneNumber> PhoneNumbers { get; set; }
         public virtual IList<Office> Offices { get; set; }
 
         public Agent()

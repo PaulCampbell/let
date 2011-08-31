@@ -5,9 +5,9 @@ using System.Web;
 
 namespace Lettings.Web.Mvc.Controllers.ViewModels
 {
-    public class RentalPropertiesView
+    public class PropertyPicture
     {
-        public List<PropertySummaryView> Properties { get; set; }
-        public int TotalResult { get; set; }
+        public string PictureUrl { get; set; }
+
     }
 }

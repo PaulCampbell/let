@@ -7,6 +7,7 @@ using SharpArch.NHibernate.Web.Mvc;
 using SharpArch.Domain.PersistenceSupport;
 using Lettings.Domain;
 using Lettings.Web.Mvc.Controllers.Queries;
+using Lettings.Web.Mvc.Controllers.ViewModels;
 
 namespace Lettings.Web.Mvc.Controllers
 {
@@ -14,7 +15,15 @@ namespace Lettings.Web.Mvc.Controllers
     {
         private readonly ILinqRepository<RentalProperty> _propertyRepository;
         private readonly ILinqRepository<User> _userRepository;
-      
+
+
+        public RentalPropertyController(ILinqRepository<RentalProperty> propertyRepository,
+           ILinqRepository<User> userRepository)
+        {
+            _propertyRepository = propertyRepository;
+            _userRepository = userRepository;
+        }
+
         //
         // GET: /RentalProperty/
         [HttpGet]
@@ -23,9 +32,9 @@ namespace Lettings.Web.Mvc.Controllers
         {
             var userId = 1;
             var user = _userRepository.FindOne(userId);
-            var properties = _propertyRepository.FindAll(new RentalPropertiesByAgentSpec(user.Agent));
-
-
+            var properties = _propertyRepository.FindAll(new RentalPropertiesByAgentSpec(user.Agent)).ToList();
+            RentalPropertiesView model = new RentalPropertiesView();
+            model.Properties = AutoMapper.Mapper.Map<List<RentalProperty>, List<PropertySummaryView>>(properties);
             return View();
         }
 

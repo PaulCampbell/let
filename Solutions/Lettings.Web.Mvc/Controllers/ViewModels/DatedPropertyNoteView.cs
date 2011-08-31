@@ -5,9 +5,9 @@ using System.Web;
 
 namespace Lettings.Web.Mvc.Controllers.ViewModels
 {
-    public class RentalPropertiesView
+    public class DatedPropertyNoteView
     {
-        public List<PropertySummaryView> Properties { get; set; }
-        public int TotalResult { get; set; }
+        public virtual DateTime Created { get; set; }
+        public virtual string Note { get; set; }
     }
 }
