@@ -30,7 +30,11 @@ namespace Lettings.Web.Mvc.Controllers.Queries
 
         public override Expression<Func<RentalProperty, bool>> MatchingCriteria
         {
-            get { return p => p.Agent == this.agent; }
+            get { 
+                
+                return p => p.Agent == this.agent;
+            
+                }
         }
     }
 }

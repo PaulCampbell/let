@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System;
 using System.Text;
 using System.Security.Cryptography;
 using Lettings.Domain.Services.Interfaces;
@@ -28,12 +27,8 @@ namespace Lettings.Domain.Services
         for (int i=0; i < saltBytes.Length; i++)
             plainTextWithSaltBytes[plainTextBytes.Length + i] = saltBytes[i];
 
-        // Because we support multiple hashing algorithms, we must define
-        // hash object as a common (abstract) base class. We will specify the
-        // actual hashing algorithm class later during object creation.
-        HashAlgorithm hash;
+        HashAlgorithm hash = new SHA1Managed();
 
-        hash = new SHA1Managed();
        
         // Compute hash value of our plain text with appended salt.
         byte[] hashBytes = hash.ComputeHash(plainTextWithSaltBytes);

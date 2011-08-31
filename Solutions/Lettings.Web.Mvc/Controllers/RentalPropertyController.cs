@@ -8,10 +8,13 @@ using SharpArch.Domain.PersistenceSupport;
 using Lettings.Domain;
 using Lettings.Web.Mvc.Controllers.Queries;
 using Lettings.Web.Mvc.Controllers.ViewModels;
+using Lettings.Web.Mvc.Helpers.Attributes;
 
 namespace Lettings.Web.Mvc.Controllers
 {
-    public class RentalPropertyController : Controller
+    // This is for managing rental properties...
+    [LettingsAuthorisation(new List<UserType>{{UserType.employee}, {UserType.manager}})]
+    public class RentalPropertyController : BaseController
     {
         private readonly ILinqRepository<RentalProperty> _propertyRepository;
         private readonly ILinqRepository<User> _userRepository;
@@ -30,8 +33,10 @@ namespace Lettings.Web.Mvc.Controllers
         [Transaction]
         public ActionResult Index()
         {
-            var userId = 1;
+            var userId = this.ExecutingUser.Id;
             var user = _userRepository.FindOne(userId);
+
+            // grab all of the properties from the Agent this user belongs to...
             var properties = _propertyRepository.FindAll(new RentalPropertiesByAgentSpec(user.Agent)).ToList();
             RentalPropertiesView model = new RentalPropertiesView();
             model.Properties = AutoMapper.Mapper.Map<List<RentalProperty>, List<PropertySummaryView>>(properties);
