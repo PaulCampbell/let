@@ -48,7 +48,6 @@ namespace Lettings.Domain.Services
             var newHash = _passwordHashingService.ComputeHash(newPassword, salt);
 
             user.HashedPassword = newHash;
-            user.PasswordSalt = salt.ToString();
 
             return UpdatePasswordResult.successful;
 
