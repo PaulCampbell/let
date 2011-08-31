@@ -168,8 +168,7 @@
     <Compile Include="Helpers\Attributes\LettingsAuthorisation.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\img\sharp_arch.jpg" />
-    <Content Include="Content\img\sharp_arch_small.gif" />
+    <Content Include="Content\bootstrap.css" />
     <Content Include="Content\js\jquery-1.6.1.min.js" />
     <Content Include="Content\js\modernizr-1.7.min.js" />
     <Content Include="Content\Site.css" />
@@ -209,6 +208,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Content\img\" />
     <Folder Include="Helpers\ExtensionMethods\" />
     <Folder Include="Views\RentalProperty\" />
   </ItemGroup>

@@ -5,18 +5,28 @@
 }
 
 @using(Html.BeginForm("Login", "Authentication")){
-    
-    @Html.LabelFor(x=>x.EmailAddress)
-    @Html.TextAreaFor(x=>x.EmailAddress)
-
-    @Html.LabelFor(x=>x.Password)
-    @Html.TextAreaFor(x=>x.Password)
-
-    <small>@Html.LabelFor(x => x.PersistentLogin)</small>
-    @Html.CheckBoxFor(x=>x.PersistentLogin)
-
-    <input type="submit" value="Log in" />
-    
+    <fieldset>
+    <legend>Log in</legend>
+        <div class="clearfix">
+        @Html.LabelFor(x=>x.EmailAddress)
+        <div class="input">
+        @Html.TextBoxFor(x => x.EmailAddress)
+        </div>
+        </div>
+        <div class="clearfix">
+        @Html.LabelFor(x => x.Password)
+          <div class="input">
+        @Html.PasswordFor(x => x.Password)
+        </div>
+        </div>
+        <div class="clearfix input">
+        <small>@Html.LabelFor(x => x.PersistentLogin)</small>
+            @Html.CheckBoxFor(x => x.PersistentLogin)
+        </div>
+        <div class="clearfix">
+        <input type="submit" value="Log in" class="btn" /> 
+        </div>
+    </fieldset>
 }
 
 
