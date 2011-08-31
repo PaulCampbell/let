@@ -18,7 +18,6 @@ namespace Lettings.Domain
         public virtual string MobileNumber { get; set; }
         public virtual Agent Agent { get; set; }
         public virtual DateTime Added { get; set; }
-        public virtual User AddedBy { get; set; }
 
         public virtual string Postcode { get; set; }
         public virtual string HouseNumber { get; set; }

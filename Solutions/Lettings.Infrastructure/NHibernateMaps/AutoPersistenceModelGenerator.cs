@@ -40,6 +40,7 @@
                        c.Add<CustomForeignKeyConvention>();
                        c.Add<HasManyConvention>();
                        c.Add<TableNameConvention>();
+                       c.Add<EnumConvention>();
                    };
         }
     }

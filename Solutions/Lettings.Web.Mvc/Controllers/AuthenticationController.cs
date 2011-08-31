@@ -56,7 +56,13 @@ namespace Lettings.Web.Mvc.Controllers
             return RedirectToAction("RedirectLoggedInUserOnwards");  
         }
 
-        private ActionResult RedirectLoggedInUserOnwards()
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Login");
+        }
+
+        public ActionResult RedirectLoggedInUserOnwards()
         {
             switch (this.ExecutingUser.UserType)
             {
@@ -73,7 +79,7 @@ namespace Lettings.Web.Mvc.Controllers
                     FormsAuthentication.SignOut();
                     break;
             }
-            return View("Index", "Home");
+            return RedirectToAction("Login");
         }
 
     }

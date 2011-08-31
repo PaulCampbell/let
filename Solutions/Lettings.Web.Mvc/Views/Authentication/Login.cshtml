@@ -19,11 +19,13 @@
         @Html.PasswordFor(x => x.Password)
         </div>
         </div>
-        <div class="clearfix input">
-        <small>@Html.LabelFor(x => x.PersistentLogin)</small>
-            @Html.CheckBoxFor(x => x.PersistentLogin)
-        </div>
+        
         <div class="clearfix">
+            @Html.CheckBoxFor(x => x.PersistentLogin)
+            @Html.LabelFor(x => x.PersistentLogin)
+         </div>
+  
+        <div class="clearfix actions">
         <input type="submit" value="Log in &raquo;" class="btn" /> 
         </div>
     </fieldset>
