@@ -82,10 +82,14 @@
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Agent.cs" />
+    <Compile Include="Contracts\Queries\UserByEmailSpecication.cs" />
     <Compile Include="Office.cs" />
     <Compile Include="PhoneNumber.cs" />
     <Compile Include="PropertyPicture.cs" />
     <Compile Include="RentalProperty.cs" />
+    <Compile Include="Services\AuthenticationService.cs" />
+    <Compile Include="Services\Interfaces\IPasswordHashingService.cs" />
+    <Compile Include="Services\PasswordHashingService.cs" />
     <Compile Include="Tenancy.cs" />
     <Compile Include="User.cs" />
     <Compile Include="UserType.cs" />
@@ -108,7 +112,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Contracts\Queries\" />
     <Folder Include="Contracts\Tasks\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

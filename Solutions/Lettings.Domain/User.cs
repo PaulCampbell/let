@@ -12,6 +12,7 @@ namespace Lettings.Domain
         public virtual string LastName { get; set; }
         public virtual UserType UserType { get; set; }
         public virtual string HashedPassword { get; set; }
+        public virtual string PasswordSalt { get; set; }
         public virtual string Email { get; set; }
         public virtual Agent Agent { get; set; }
 

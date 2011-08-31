@@ -12,15 +12,12 @@ namespace Lettings.Tests
     {
         private RentalProperty _property;
 
-        [TestFixtureSetUp]
+        [SetUp]
         public void OneTimeSetUp()
         {
             var a = new Agent { Name = "TestAgent" };
             var o = new Office(a) { Name = "Head Office" };
-
             _property = new RentalProperty(o);
-
-         
         }
 
         [Test]

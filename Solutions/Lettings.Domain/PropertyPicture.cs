@@ -9,7 +9,7 @@ namespace Lettings.Domain
     public class PropertyPicture : Entity
     {
         public virtual string PictureUrl { get; set; }
-        private virtual bool _preferredPicture;
+        private  bool _preferredPicture;
         public virtual bool PreferredPicture { get { return _preferredPicture; } }
        
         internal virtual void SetPreferredPicture(bool preferred)

@@ -28,11 +28,12 @@ namespace Lettings.Domain
             }
         }
 
-        public virtual RentalProperty(Office office)
+        public  RentalProperty(Office office)
         {
             PetsAllowed = false;
             SmokersAllowed = false;
             Office = office;
+            Pictures = new List<PropertyPicture>();
         }
 
         public virtual void SetPreferredPicture(PropertyPicture picture)
