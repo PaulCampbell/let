@@ -162,6 +162,7 @@
     <Compile Include="Controllers\ViewModels\DatedPropertyNoteView.cs" />
     <Compile Include="Controllers\ViewModels\LandlordView.cs" />
     <Compile Include="Controllers\ViewModels\LoginModel.cs" />
+    <Compile Include="Controllers\ViewModels\NewUserRegisterModel.cs" />
     <Compile Include="Controllers\ViewModels\OfficeView.cs" />
     <Compile Include="Controllers\ViewModels\PropertyPicture.cs" />
     <Compile Include="Controllers\ViewModels\PropertySummaryView.cs" />
@@ -219,6 +220,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Admin\AddAgent.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Register.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
