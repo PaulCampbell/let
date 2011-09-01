@@ -1,5 +1,21 @@
-﻿@{
+﻿@model Lettings.Web.Mvc.Controllers.ViewModels.AdminIndexView
+@{
     ViewBag.Title = "Home";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<div class="row containerPadding" id="agents">
+<h1>System administration</h1>
+<section>
+<h2>Registered agents</h2>
+<ul>
+    @foreach (var a in Model.Agents)
+    {
+    <li>
+        <h3>@Html.ActionLink(a.Name, "ViewAgent",new {Id = a.Id})</h3>
+    </li>
+    }
+</ul>
+<a href="AddAgent" class="btn">Add an agent  &raquo;</a>
+</section>
+</div>

@@ -7,6 +7,7 @@ using Lettings.Web.Mvc.Helpers.Attributes;
 using Lettings.Domain;
 using SharpArch.Domain.PersistenceSupport;
 using Lettings.Web.Mvc.Controllers.ViewModels;
+using AutoMapper;
 
 namespace Lettings.Web.Mvc.Controllers 
 {
@@ -50,8 +51,9 @@ namespace Lettings.Web.Mvc.Controllers
                 return View(model);
             }
 
+    
             // we're valid - map to domain model and persist.
-           var agent = AutoMapper.Mapper.Map<AddAgentModel, Agent>(model);
+           var agent = Mapper.Map<AddAgentModel, Agent>(model);
            _agentRepository.Save(agent);
             return RedirectToAction("Index");
         }

@@ -8,11 +8,12 @@ using Lettings.Web.Mvc.Controllers.ViewModels;
 
 namespace Lettings.Web.Mvc.CastleWindsor
 {
-    public class AutoMapperSetUp
+    public class AutoMapperRegistry
     {
         public static void ConfigureAutoMapper()
         {
-            Mapper.CreateMap<Agent, AddAgentModel>();
+            Mapper.CreateMap<AddAgentModel, Agent>();
+            Mapper.CreateMap<Agent, AgentSummaryView>();
         }
     }
 }

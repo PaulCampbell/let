@@ -3,30 +3,40 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<div class="row containerPadding" id="agents">
+<h1>System administration</h1>
 
-@using (Html.BeginForm("AddAgent", "Admin"))
-{
+    <div class="stepsLeft">
+        <ol>
+           <li>Agency details</li>
+           <li>Head office</li>
+           <li>Add users</li>
+        </ol>
+        <div id="formContent">
+        @using (Html.BeginForm("AddAgent", "Admin"))
+        {
+        <fieldset>
+            <legend>Add new agent</legend>
+            @Html.ValidationSummary();
+                <div class="clearfix">
+                @Html.LabelFor(x=>x.Name)
+                <div class="input">
+                @Html.TextBoxFor(x => x.Name)
+                </div>
+            </div>
+            <div class="clearfix">
+                @Html.LabelFor(x=>x.PictureUrl)
+                <div class="input">
+                @Html.TextBoxFor(x => x.PictureUrl)
+                </div>
+            </div>
+            <div class="clearfix actions">
+                <input type="submit" value="Add agent &raquo;" class="btn" /> 
+            </div>
+        </fieldset>
 
-<fieldset>
-<legend>Add new agent</legend>
-  @Html.ValidationSummary();
-    <div class="clearfix">
-    @Html.LabelFor(x=>x.Name)
-    <div class="input">
-    @Html.TextBoxFor(x => x.Name)
+        }
+        </div>
     </div>
-    </div>
-      <div class="clearfix">
-    @Html.LabelFor(x=>x.PictureUrl)
-    <div class="input">
-    @Html.TextBoxFor(x => x.PictureUrl)
-    </div>
-    </div>
-    <div class="clearfix actions">
-    <input type="submit" value="Add agent &raquo;" class="btn" /> 
-    </div>
-</fieldset>
 
-}
-
-
+</div>

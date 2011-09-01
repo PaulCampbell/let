@@ -80,7 +80,7 @@
             AreaRegistration.RegisterAllAreas();
             RouteRegistrar.RegisterRoutesTo(RouteTable.Routes);
 
-            AutoMapperSetUp.ConfigureAutoMapper();
+            AutoMapperRegistry.ConfigureAutoMapper();
         }
 
         /// <summary>

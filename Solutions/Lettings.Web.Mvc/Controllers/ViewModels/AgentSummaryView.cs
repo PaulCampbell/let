@@ -7,6 +7,7 @@ namespace Lettings.Web.Mvc.Controllers.ViewModels
 {
     public class AgentSummaryView
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public string PictureUrl { get; set; }
        // public virtual IList<PhoneNumber> PhoneNumbers { get; set; }

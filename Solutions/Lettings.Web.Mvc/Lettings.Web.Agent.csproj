@@ -142,7 +142,7 @@
     <Compile Include="..\..\Common\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="CastleWindsor\AutoMapperSetUp.cs" />
+    <Compile Include="CastleWindsor\AutoMapperRegistry.cs" />
     <Compile Include="CastleWindsor\AutomappingConfiguration.cs" />
     <Compile Include="CastleWindsor\ComponentRegistrar.cs" />
     <Compile Include="Controllers\AdminController.cs" />
