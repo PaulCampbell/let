@@ -7,7 +7,7 @@ using System.Linq.Expressions;
 
 namespace Lettings.Domain.Contracts.Queries
 {
-    public class UserByEmailSpecication : QuerySpecification<User>
+    public class UserByEmailSpecification : QuerySpecification<User>
     {
         private readonly string email;
 
@@ -17,7 +17,7 @@ namespace Lettings.Domain.Contracts.Queries
         /// <param name="userName">
         /// The user name.
         /// </param>
-        public UserByEmailSpecication(string email)
+        public UserByEmailSpecification(string email)
         {
             this.email = email;
         }

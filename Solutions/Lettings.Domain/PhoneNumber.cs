@@ -11,5 +11,6 @@ namespace Lettings.Domain
         public virtual string Number { get; set; }
         public virtual string Name { get; set; }
         public virtual string Description { get; set; }
+        public virtual Agent Agent { get; set; }
     }
 }

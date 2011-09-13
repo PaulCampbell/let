@@ -16,6 +16,11 @@
             Offices = new List<Office>();
         }
 
+        public virtual void AddPhoneNumber(PhoneNumber number)
+        {
+            number.Agent = this;
+            PhoneNumbers.Add(number);
+        }
      
     }
 }

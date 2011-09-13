@@ -41,7 +41,7 @@ namespace Lettings.Web.Mvc.Controllers
                 return View();
             }
 
-            var u = _userRepository.FindOne(new UserByEmailSpecication(model.EmailAddress));
+            var u = _userRepository.FindOne(new UserByEmailSpecification(model.EmailAddress));
             var result = _authenticationService.Login(model.EmailAddress, model.Password);
 
             if(result != Domain.Services.LoginResult.successful)
@@ -70,10 +70,10 @@ namespace Lettings.Web.Mvc.Controllers
                     return RedirectToAction("Index", "Admin");
 
                 case UserType.employee :
-                    return RedirectToAction("");
+                    return RedirectToAction("Index", "AgentManagement");
 
                 case UserType.manager:
-                    return RedirectToAction("");
+                    return RedirectToAction("Index", "AgentManagement");
 
                 default:
                     // we're not dealing with anyone else here...

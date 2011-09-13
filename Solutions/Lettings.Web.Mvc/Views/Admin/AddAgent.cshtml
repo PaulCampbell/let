@@ -30,6 +30,36 @@
                 @Html.TextBoxFor(x => x.PictureUrl)
                 </div>
             </div>
+            <div class="clearfix">
+                @Html.LabelFor(x=>x.FirstName)
+                <div class="input">
+                @Html.TextBoxFor(x => x.FirstName)
+                </div>
+            </div>
+            <div class="clearfix">
+                @Html.LabelFor(x=>x.LastName)
+                <div class="input">
+                @Html.TextBoxFor(x => x.LastName)
+                </div>
+            </div>
+            <div class="clearfix">
+                @Html.LabelFor(x=>x.EmailAddress)
+                <div class="input">
+                @Html.TextBoxFor(x => x.EmailAddress)
+                </div>
+            </div>
+            <div class="clearfix">
+                @Html.LabelFor(x=>x.Password)
+                <div class="input">
+                @Html.PasswordFor(x => x.Password)
+                </div>
+            </div>
+            <div class="clearfix">
+                @Html.LabelFor(x=>x.ConfirmPassword)
+                <div class="input">
+                @Html.PasswordFor(x => x.ConfirmPassword)
+                </div>
+            </div>
             <div class="clearfix actions">
                 <input type="submit" value="Add agent &raquo;" class="btn" /> 
             </div>

@@ -22,7 +22,7 @@ namespace Lettings.Domain.Services
 
         public LoginResult Login(string email, string password)
         {
-            var u = _userRepository.FindOne(new UserByEmailSpecication(email));
+            var u = _userRepository.FindOne(new UserByEmailSpecification(email));
             if (u == null)
             {
                 return LoginResult.unsuccessful;

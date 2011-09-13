@@ -59,7 +59,7 @@ namespace Lettings.Tests.Services
         [Test]
         public void wrong_password_cannot_log_in()
         { 
-            var lookupSpec = new UserByEmailSpecication("someAddress");
+            var lookupSpec = new UserByEmailSpecification("someAddress");
             _userRepository.FindOne(lookupSpec).ReturnsForAnyArgs(new User(new Agent(), UserType.employee));
             _passwordHashingService.VerifyHash("wrongpass", "SomeHash").ReturnsForAnyArgs(false);
         
@@ -72,7 +72,7 @@ namespace Lettings.Tests.Services
         [Test]
         public void correct_password_and_email_can_log_in()
         {
-            var lookupSpec = new UserByEmailSpecication("someAddress");
+            var lookupSpec = new UserByEmailSpecification("someAddress");
             _userRepository.FindOne(lookupSpec).ReturnsForAnyArgs(new User(new Agent(), UserType.employee));
             _passwordHashingService.VerifyHash("wrongpass", "SomeHash").ReturnsForAnyArgs(true);
 

@@ -1,7 +1,124 @@
-﻿@{
-    ViewBag.Title = "Register";
+﻿@model Lettings.Web.Mvc.Controllers.ViewModels.AddAgentModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="row containerPadding">
-    <h2>Set up an account</h2>
+
+<div class="row containerPadding" id="agents">
+<h1>Register an account</h1>
+
+    <div class="stepsLeft">
+        <ol>
+           <li>Agency details</li>
+           <li>Head office</li>
+           <li>Add users</li>
+        </ol>
+        <div id="formContent">
+        @using (Html.BeginForm("Register", "Home"))
+        {
+        @Html.ValidationSummary();
+        <fieldset>
+            <legend>Agency details</legend>
+            
+            <div class="clearfix">
+                @Html.LabelFor(x => x.Name)
+                <div class="input">
+                @Html.TextBoxFor(x => x.Name)
+                </div>
+            </div>
+            
+            <div class="clearfix">
+                @Html.LabelFor(x => x.PhoneNumber)
+                <div class="input">
+                @Html.TextBoxFor(x => x.PhoneNumber)
+                </div>
+            </div>
+
+            <div class="clearfix">
+                @Html.LabelFor(x => x.PictureUrl)
+                <div class="input">
+                <input type="file" name="file" id="AgencyLogo" />
+                </div>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Head office details</legend>
+            <div class="clearfix">
+                @Html.LabelFor(x => x.OfficeName)
+                <div class="input">
+                @Html.TextBoxFor(x => x.OfficeName)
+                </div>
+            </div>
+            <div class="clearfix">
+                @Html.LabelFor(x => x.Postcode)
+                <div class="input">
+                @Html.TextBoxFor(x => x.Postcode)
+                </div>
+            </div>
+             <div class="clearfix">
+                @Html.LabelFor(x => x.HouseNumber)
+                <div class="input">
+                @Html.TextBoxFor(x => x.HouseNumber)
+                </div>
+            </div>
+            <div class="clearfix">
+                @Html.LabelFor(x => x.AddressLine1)
+                <div class="input">
+                @Html.TextBoxFor(x => x.AddressLine1)
+                </div>
+            </div>
+            <div class="clearfix">
+                @Html.LabelFor(x => x.AddressLine2)
+                <div class="input">
+                @Html.TextBoxFor(x => x.AddressLine2)
+                </div>
+            </div>
+            <div class="clearfix">
+                @Html.LabelFor(x => x.Town)
+                <div class="input">
+                @Html.TextBoxFor(x => x.Town)
+                </div>
+            </div>
+        </fieldset>
+            
+        <fieldset>
+            <legend>Your details</legend>    
+            <div class="clearfix">
+                @Html.LabelFor(x => x.FirstName)
+                <div class="input">
+                @Html.TextBoxFor(x => x.FirstName)
+                </div>
+            </div>
+            <div class="clearfix">
+                @Html.LabelFor(x => x.LastName)
+                <div class="input">
+                @Html.TextBoxFor(x => x.LastName)
+                </div>
+            </div>
+            <div class="clearfix">
+                @Html.LabelFor(x => x.EmailAddress)
+                <div class="input">
+                @Html.TextBoxFor(x => x.EmailAddress)
+                </div>
+            </div>
+            <div class="clearfix">
+                @Html.LabelFor(x => x.Password)
+                <div class="input">
+                @Html.PasswordFor(x => x.Password)
+                </div>
+            </div>
+            <div class="clearfix">
+                @Html.LabelFor(x => x.ConfirmPassword)
+                <div class="input">
+                @Html.PasswordFor(x => x.ConfirmPassword)
+                </div>
+            </div>
+            <div class="clearfix actions">
+                <input type="submit" value="Add agent &raquo;" class="btn" /> 
+            </div>
+        </fieldset>
+
+        }
+        </div>
+    </div>
 
 </div>
