@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Properties";
+    Layout = "~/Views/Shared/_AgentManagementLayout.cshtml";
+}
+<div class="row containerPadding">
+    <div class="breadcrumbs">
+        <ul>
+            <li>Properties</li>
+        </ul>
+    </div>
+
+    <h1>Properties</h1>
+    @Html.TextBox("Search", "Find property", new { @class = "xlarge" })
+    <input type="button" id="btnSearch" value="Find" class="btn primary" />
+</div>

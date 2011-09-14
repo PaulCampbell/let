@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head id="Head1" runat="server">
-    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />   
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
     <link href="/Content/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="/Content/Site.css" rel="stylesheet" type="text/css" />
     <link href="/Content/prettify.css" rel="stylesheet"> 
@@ -22,11 +22,11 @@
      <div class="topbar">
       <div class="fill">
         <div class="container">
-          <h3><a href="#">Letting thing</a></h3>
-          <ul>
-            <li class="active"><a href="#top">Home</a></li>
-            <li><a href="#news">News</a></li>
-            <li><a href="#contact">Contact</a></li>
+          <ul><li><h3>@Html.ActionLink("Agency", "Index")</h3></li>
+          
+            <li>@Html.ActionLink("Properties", "Properties")</li>
+            <li>@Html.ActionLink("Landlords", "Landlords")</li>
+            <li>@Html.ActionLink("Tenants", "Tenants")</li>
           </ul>
 
           @if (User.Identity.IsAuthenticated)

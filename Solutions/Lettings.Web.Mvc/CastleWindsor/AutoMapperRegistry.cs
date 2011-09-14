@@ -14,6 +14,10 @@ namespace Lettings.Web.Mvc.CastleWindsor
         {
             Mapper.CreateMap<AddAgentModel, Agent>();
             Mapper.CreateMap<Agent, AgentSummaryView>();
+            Mapper.CreateMap<Agent, AgentFatView>();
+            Mapper.CreateMap<PhoneNumber, PhoneNumberView>();
+            Mapper.CreateMap<Office, OfficeView>();
+            Mapper.CreateMap<User, UserSummary>();
         }
     }
 }

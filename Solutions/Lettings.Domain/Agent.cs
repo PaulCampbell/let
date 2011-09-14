@@ -21,6 +21,11 @@
             number.Agent = this;
             PhoneNumbers.Add(number);
         }
+
+        public virtual void AddOffice(Office office)
+        {
+            Offices.Add(office);
+        }
      
     }
 }

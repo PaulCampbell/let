@@ -79,6 +79,8 @@
                 Town = model.Town
             };
 
+            agent.AddOffice(office);
+
             // Check the email address has not already been used in the system...
             var emailAddressInUse = _userRepository.FindOne(new UserByEmailSpecification(model.EmailAddress));
             if (emailAddressInUse != null)
