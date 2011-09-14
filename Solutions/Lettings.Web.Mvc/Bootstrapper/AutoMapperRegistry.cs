@@ -6,7 +6,7 @@ using AutoMapper;
 using Lettings.Domain;
 using Lettings.Web.Mvc.Controllers.ViewModels;
 
-namespace Lettings.Web.Mvc.CastleWindsor
+namespace Lettings.Web.Mvc.Bootstrapper
 {
     public class AutoMapperRegistry
     {

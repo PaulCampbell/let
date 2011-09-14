@@ -1,4 +1,4 @@
-﻿namespace Lettings.Web.Mvc.Controllers
+﻿namespace Lettings.Web.Mvc.Bootstrapper
 {
     using System.Web.Mvc;
     using System.Web.Routing;
@@ -13,7 +13,7 @@
             routes.MapRoute(
                 "Default",                                              // Route name
                 "{controller}/{action}/{id}",                           // URL with parameters
-                new { controller = "Authentication", action = "Login", id = UrlParameter.Optional }); // Parameter defaults
+                new { controller = "Home", action = "Index", id = UrlParameter.Optional }); // Parameter defaults
         }
     }
 }

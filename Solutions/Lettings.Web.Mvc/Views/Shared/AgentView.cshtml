@@ -18,18 +18,15 @@
             <h3>Users</h3>
             @foreach (var u in Model.Users)
             {
+                <span>
                 @u.FullName 
+                </span>
                 if (((Lettings.Domain.User)ViewBag.ExecutingUser).UserType == Lettings.Domain.UserType.admin)
                 {
-                    @Html.ActionLink("Impersonate user", "Impersonate", "Admin",  new {@userId=u.Id}, null)
+                    @Html.ActionLink("Impersonate user", "Impersonate", "Admin", new { @userId = u.Id }, new { @class = "btn" })
                 }
             }
         </div>
     </div>
 
-    <section>
-        <h1>Properties</h1>
-
-
-        @Html.ActionLink("Add Property", "AddProperty", null, new {@class="btn primary large" });
-    </section>
+  

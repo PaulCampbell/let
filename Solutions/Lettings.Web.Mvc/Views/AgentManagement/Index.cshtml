@@ -7,5 +7,12 @@
    
    @{Html.RenderPartial("AgentView", Model);}
 
+     <section>
+        <h1>Properties</h1>
+
+        @{Html.RenderAction("PropertiesGrid");}
+
+        @Html.ActionLink("Add Property", "AddProperty", null, new {@class="btn primary large" });
+    </section>
 </div>
 

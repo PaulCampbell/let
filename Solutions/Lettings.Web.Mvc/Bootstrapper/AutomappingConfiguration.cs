@@ -1,4 +1,4 @@
-﻿namespace Lettings.Web.Mvc.CastleWindsor
+﻿namespace Lettings.Web.Mvc.Bootstrapper
 {
     using System.Linq;
     using FluentNHibernate;

@@ -143,9 +143,9 @@
     <Compile Include="..\..\Common\CommonAssemblyInfo.cs">
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="CastleWindsor\AutoMapperRegistry.cs" />
-    <Compile Include="CastleWindsor\AutomappingConfiguration.cs" />
-    <Compile Include="CastleWindsor\ComponentRegistrar.cs" />
+    <Compile Include="Bootstrapper\AutoMapperRegistry.cs" />
+    <Compile Include="Bootstrapper\AutomappingConfiguration.cs" />
+    <Compile Include="Bootstrapper\ComponentRegistrar.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\AgentManagementController.cs" />
     <Compile Include="Controllers\AuthenticationController.cs" />
@@ -154,7 +154,7 @@
     <Compile Include="Controllers\LandlordController.cs" />
     <Compile Include="Controllers\Queries\RentalPropertiesByAgentSpec.cs" />
     <Compile Include="Controllers\RentalPropertyController.cs" />
-    <Compile Include="Controllers\RouteRegistrar.cs" />
+    <Compile Include="Bootstrapper\RouteRegistrar.cs" />
     <Compile Include="Controllers\TenantController.cs" />
     <Compile Include="Controllers\Transation.cs" />
     <Compile Include="Controllers\ViewModels\AddAgentModel.cs" />
@@ -189,7 +189,6 @@
     <Content Include="Content\js\jquery-1.6.1-vsdoc.js" />
     <Content Include="Content\js\jquery-1.6.1.js" />
     <Content Include="Content\js\modernizr-1.7.js" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -214,15 +213,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Admin\Index.cshtml" />
-    <Content Include="Views\Authentication\Login.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Content\img\" />
+    <Folder Include="Content\img\agentLogos\" />
     <Folder Include="Helpers\ExtensionMethods\" />
+    <Folder Include="Views\Authentication\" />
     <Folder Include="Views\RentalProperty\" />
   </ItemGroup>
   <ItemGroup>

@@ -10,10 +10,10 @@
         <ol>
            <li>Agency details</li>
            <li>Head office</li>
-           <li>Add users</li>
+           <li>Your details</li>
         </ol>
         <div id="formContent">
-        @using (Html.BeginForm("Register", "Home"))
+        @using (Html.BeginForm("Register", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
         {
         @Html.ValidationSummary();
         <fieldset>

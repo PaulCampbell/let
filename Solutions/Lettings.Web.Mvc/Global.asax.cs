@@ -8,7 +8,7 @@
     using Castle.Windsor;
 
     // Lettings.Web.Mvc.CastleWindsor
-    using CastleWindsor;
+    using Bootstrapper;
 
     using CommonServiceLocator.WindsorAdapter;
 

@@ -23,18 +23,27 @@
      <div class="topbar">
       <div class="fill">
         <div class="container">
-          <h3><a href="#">Letting thing</a></h3>
+          <h3>@Html.ActionLink("Letting thing", "Index", "Home",null,null)</h3>
           <ul>
-            <li class="active"><a href="#top">Home</a></li>
-            <li><a href="#news">News</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li>@Html.ActionLink("About", "Index", "Home",null,null)</li>
+            <li>@Html.ActionLink("Blog", "Blog", "Home",null,null)</li>
+            <li>@Html.ActionLink("Contact us", "Contact", "Home",null,null)</li>
           </ul>
 
           @if (User.Identity.IsAuthenticated)
           {
           <ul class="nav secondary-nav">
             <li class="menu">
-              <strong>@Html.ActionLink("Log out", "Logout","Authentication")</strong>
+              <strong>@Html.ActionLink("Log out", "Logout", "Authentication")</strong>
+           
+            </li>
+          </ul>
+          }
+          else
+          {
+          <ul class="nav secondary-nav">
+            <li class="menu">
+              <strong>@Html.ActionLink("Register", "Register", "Home")</strong>
            
             </li>
           </ul>

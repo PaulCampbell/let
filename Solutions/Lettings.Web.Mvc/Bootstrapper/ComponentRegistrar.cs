@@ -1,6 +1,6 @@
 ﻿using SharpArch.Web.Mvc.Castle;
 
-namespace Lettings.Web.Mvc.CastleWindsor
+namespace Lettings.Web.Mvc.Bootstrapper
 {
     using Castle.MicroKernel.Registration;
     using Castle.Windsor;

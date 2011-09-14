@@ -1,36 +1,61 @@
-﻿@{
+﻿@model Lettings.Web.Mvc.Controllers.ViewModels.LoginModel
+@{
     ViewBag.Title = "Home";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-	<h2>S#arp Architecture Project</h2>
-	<h3>What next?</h3>
-	<p>
-		Your S#arp Architecture 2.0RC project is now setup and ready to go. This release is built on the RTM verion of ASP.NET MVC 3 and .NET 4. The only tasks remaining
-		are to:
-		<ol>
-			<li>
-				<span style="font-weight:bold; font-style:italic">Create your database and set the connection string
-				within SharpCookbook.Web/NHibernate.config</span>
-			</li>
-			<li>
-				Optionally, modify the Fluent NHibernate preferences within SharpCookbook.Data.NHibernateMaps.GetConventions()
-				if you don't like the default settings.  There's lots of terrific info about Fluent NHibernate
-				at <a href="http://wiki.fluentnhibernate.org/show/HomePage">http://wiki.fluentnhibernate.org/show/HomePage</a>.
-			</li>
-			<li>
-				Open SharpCookbook.Tests.dll via NUnit and make sure all the tests are turning green.
-			</li>
-			<li>
-				Add your first entity with CRUD scaffolding via /Code Generation/CrudScaffolding/ScaffoldingGeneratorCommand.tt.
-				(If you include a namespace, be sure to setup the appropriate view area within
-				SharpCookbook.Web.Controllers.RouteRegistrar.RegisterRoutesTo() after the scaffolding generator has completed.)
-			</li>
-		</ol>
-	</p>
-	<p>
-		If you need direction on what to do next, take a look at the documentation found in the
-		/docs folder of the S#arp Architecture release package which provides a solid tutorial.
-		You can also ask for assitance and guidance on the
-		<a href="http://groups.google.com/group/sharp-architecture">S#arp Architecture discussion boards</a>.
-	</p>
+      <div class="hero-unit">
+        <h1>Letting thing</h1>
+        <p>Vestibulum id ligula porta felis euismod semper. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+        <p><a class="btn primary large">Learn more &raquo;</a></p>
+      </div>
+
+      <div class="row" id="news">
+        <section class="span9">
+         <h1>News feed??? <small>sub heading</small></h1>
+          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+        
+        </section>
+      
+        <div class="span7">
+
+            @using(Html.BeginForm("Login", "Authentication")){
+                <fieldset>
+                <legend>Log in</legend>
+                    @Html.ValidationSummary();
+                    <div class="clearfix">
+                    @Html.LabelFor(x=>x.EmailAddress)
+                    <div class="input">
+                    @Html.TextBoxFor(x => x.EmailAddress)
+                    </div>
+                    </div>
+                    <div class="clearfix">
+                    @Html.LabelFor(x => x.Password)
+                      <div class="input">
+                    @Html.PasswordFor(x => x.Password)
+                    </div>
+                    </div>
+        
+                    <div class="clearfix">
+                        @Html.CheckBoxFor(x => x.PersistentLogin)
+                        @Html.LabelFor(x => x.PersistentLogin)
+                     </div>
+  
+                    <div class="clearfix actions">
+                    <input type="submit" value="Log in &raquo;" class="btn" /> 
+                    </div>
+                </fieldset>
+            }
+
+
+
+
+
+        </div>
+      </div>
+
+      <section id="contact">
+        <h1>Contact us <small>Having problems? Give us a shout</small></h1>
+         <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          
+      </section>

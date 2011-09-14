@@ -49,19 +49,23 @@
             // Ok, we have a valid Agent, Main office and first user
             //if there's a logo, upload it and grab the url...
             string savedFileName = "";
+            string fileName = "";
             foreach (string file in Request.Files)
             {
                var hpf = Request.Files[file] ;
                if (hpf.ContentLength == 0)
                   continue;
                
+                 fileName =  Path.GetFileName(string.Format("{0}{1}",hpf.FileName , DateTime.Now.ToString()));
+
                 savedFileName = Path.Combine(
-                  AppDomain.CurrentDomain.BaseDirectory + "/images/agentLogos/", 
-                  Path.GetFileName(hpf.FileName));
+                  AppDomain.CurrentDomain.BaseDirectory + "/Content/img/agentLogos/", fileName));
                   hpf.SaveAs(savedFileName);
+
+                  
             }
 
-            var agent = new Agent { Name = model.Name, PictureUrl = savedFileName };
+            var agent = new Agent { Name = model.Name, PictureUrl = fileName };
             agent.AddPhoneNumber(new PhoneNumber
             {
                 Description = "Head office number",

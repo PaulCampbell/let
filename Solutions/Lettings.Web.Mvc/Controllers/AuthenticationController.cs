@@ -24,14 +24,7 @@ namespace Lettings.Web.Mvc.Controllers
             _userRepository = userRepository;
 
         }
-        //
-        // GET: /Authentication/
-        [HttpGet]
-        public ActionResult Login()
-        {
-            return View();
-        }
-
+      
         [Transaction]
         [HttpPost]
         public ActionResult Login(LoginModel model)
@@ -60,7 +53,7 @@ namespace Lettings.Web.Mvc.Controllers
         {
             FormsAuthentication.SignOut();
             Session.Clear();
-            return RedirectToAction("Login");
+            return RedirectToAction("Index", "Home"); ;
         }
 
         public ActionResult RedirectLoggedInUserOnwards()
@@ -79,9 +72,8 @@ namespace Lettings.Web.Mvc.Controllers
                 default:
                     // we're not dealing with anyone else here...
                     FormsAuthentication.SignOut();
-                    break;
-            }
-            return RedirectToAction("Login");
+                    return RedirectToAction("Logout");
+            }    
         }
 
         public ActionResult EndImpersonation()
