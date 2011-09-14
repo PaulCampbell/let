@@ -1,0 +1,122 @@
+﻿@model Lettings.Web.Mvc.Controllers.ViewModels.PropertyEdit
+           
+           <script>
+               $(document).ready(function () {
+                   $('.add-on :checkbox').click(function () {
+                       if ($(this).attr('checked')) {
+                           $(this).next('input').val("Allowed");
+                       } else {
+                           $(this).siblings('input').val("Not allowed");
+                       }
+                   });
+               });
+           </script>
+
+<fieldset>
+    <legend>Add Property</legend>
+      @Html.ValidationSummary();
+          
+            <div class="clearfix">
+                @Html.LabelFor(x=>x.Postcode)
+                <div class="input">
+                @Html.TextBoxFor(x => x.Postcode, new { @class = "small" })
+                <a href="#" class="btn primary">Find address</a>
+                </div>
+            </div>
+            <div class="clearfix">
+                @Html.LabelFor(x=>x.AddressLine1)
+                <div class="input">
+                @Html.TextBoxFor(x => x.AddressLine1)
+                </div>
+            </div>
+            <div class="clearfix">
+                @Html.LabelFor(x => x.AddressLine2)
+                <div class="input">
+                @Html.TextBoxFor(x => x.AddressLine2)
+                </div>
+            </div>
+            <div class="clearfix">
+                @Html.LabelFor(x=>x.Town)
+                <div class="input">
+                @Html.TextBoxFor(x => x.Town)
+                </div>
+            </div>
+            <div class="clearfix">
+                @Html.LabelFor(x=>x.Summary)
+                <div class="input">
+                @Html.TextAreaFor(x => x.Summary, new { @class = "xxlarge" })
+                </div>
+            </div>
+            <div class="clearfix">
+                @Html.LabelFor(x=>x.DetailDescription)
+                <div class="input">
+                @Html.TextAreaFor(x => x.DetailDescription, new { @class="xxlarge"})
+                </div>
+            </div>
+            <div class="clearfix">
+                @Html.LabelFor(x=>x.NumberOfBedrooms)
+                <div class="input">
+                @Html.DropDownListFor(x => x.NumberOfBedrooms, Model.NumberOfBedroomsOptions, new { @class = "medium" })
+                </div>
+            </div>
+            <div class="clearfix">
+                @Html.LabelFor(x=>x.NumberOfBathrooms)
+                <div class="input">
+                @Html.DropDownListFor(x => x.NumberOfBathrooms, Model.NumberOfBathroomsOptions, new { @class = "medium" })
+                </div>
+            </div>
+            <div class="clearfix">
+                @Html.LabelFor(x=>x.NumberOfReceptionRooms)
+                <div class="input">
+                @Html.DropDownListFor(x => x.NumberOfReceptionRooms, Model.NumberOfReceptionRoomsOptions, new { @class = "medium" })
+                </div>
+            </div>
+            <div class="clearfix">
+                @Html.LabelFor(x=>x.ParkingSpaces)
+                <div class="input">
+                @Html.DropDownListFor(x => x.ParkingSpaces, Model.ParkingSpacesOptions, new { @class = "medium" })
+                </div>
+            </div>
+            <div class="clearfix">
+                @Html.LabelFor(x=>x.AdvertisedPricePerMonth)
+                <div class="input">
+                    <div class="input-prepend">
+                    <span class="add-on">£</span>
+                    @Html.TextBoxFor(x => x.AdvertisedPricePerMonth,new { @class = "small" })
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix">
+                @Html.LabelFor(x=>x.AdvertisedBondAmount)
+                <div class="input">
+                    <div class="input-prepend">
+                    <span class="add-on">£</span>
+                    @Html.TextBoxFor(x => x.AdvertisedBondAmount, new { @class = "small" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="clearfix">
+            @Html.LabelFor(x=>x.SmokersAllowed)
+            <div class="input">
+              <div class="input-prepend">
+                <label class="add-on">@Html.CheckBoxFor(x=>x.SmokersAllowed)</label>
+                <input class="small disabled-visible" disabled="disabled" id="txtSmokersAllowed" size="16" type="text" value="Not allowed" />
+              </div>
+            </div>
+          </div>
+
+           <div class="clearfix">
+            @Html.LabelFor(x=>x.PetsAllowed)
+            <div class="input">
+              <div class="input-prepend">
+                <label class="add-on">@Html.CheckBoxFor(x => x.PetsAllowed)</label>
+                <input class="small disabled-visible" disabled="disabled" id="txtPetsAllowed" size="16" type="text" value="Not allowed" />
+              </div>
+            </div>
+          </div>
+
+            <div class="clearfix actions">
+                <input type="submit" value="Add agent &raquo;" class="btn" /> 
+            </div>
+</fieldset>

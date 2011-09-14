@@ -166,6 +166,7 @@
     <Compile Include="Controllers\ViewModels\NewUserRegisterModel.cs" />
     <Compile Include="Controllers\ViewModels\OfficeView.cs" />
     <Compile Include="Controllers\ViewModels\PhoneNumberView.cs" />
+    <Compile Include="Controllers\ViewModels\PropertyEdit.cs" />
     <Compile Include="Controllers\ViewModels\PropertyPicture.cs" />
     <Compile Include="Controllers\ViewModels\PropertySummaryView.cs" />
     <Compile Include="Controllers\ViewModels\RentalPropertiesView.cs" />
@@ -244,6 +245,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\AgentManagement\PropertiesGrid.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AgentManagement\PropertyForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AgentManagement\AddProperty.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

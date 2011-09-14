@@ -1,0 +1,10 @@
+﻿@{
+    ViewBag.Title = "Add a property";
+    Layout = "~/Views/Shared/_AgentManagementLayout.cshtml";
+}
+<div class="containerPadding">
+<h2>Add Property</h2>
+
+    @Html.Partial("PropertyForm", new Lettings.Web.Mvc.Controllers.ViewModels.PropertyEdit())
+
+</div>

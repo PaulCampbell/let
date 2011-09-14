@@ -52,17 +52,22 @@ namespace Lettings.Domain
         public virtual DateTime Added { get; set; }
         public virtual User AddedBy { get; set; }
 
+        public virtual PropertyType PropertyType {get;set;}
+        public virtual PropertyStatus PropertyStatus { get; set; }
+
         public virtual Agent Agent
         { 
             get{ return ManagingOffice.Agent; }
         }
 
-        public  RentalProperty(Office office)
+        public RentalProperty(Office office)
         {
             PetsAllowed = false;
             SmokersAllowed = false;
             ManagingOffice = office;
             Pictures = new List<PropertyPicture>();
+            PropertyType = PropertyType.Unknown;
+            PropertyStatus = PropertyStatus.Unknown;
         }
 
         protected RentalProperty()
@@ -82,4 +87,21 @@ namespace Lettings.Domain
 
 
     }
+}
+
+
+public enum PropertyType
+{
+    Unknown = 0,
+    Detatched = 1,
+    SemiDetatched = 2,
+    Flat = 3
+}
+
+public enum PropertyStatus
+{
+    Unknown = 0,
+    OnMarket = 1,
+    Tenanted = 2,
+    OffMarketUntenanted = 3
 }

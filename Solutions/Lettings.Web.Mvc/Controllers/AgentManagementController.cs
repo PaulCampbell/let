@@ -63,6 +63,13 @@ namespace Lettings.Web.Mvc.Controllers
 
         [HttpGet]
         [Transation]
+        public ActionResult AddProperty()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        [Transation]
         public PartialViewResult PropertiesGrid()
         {
 

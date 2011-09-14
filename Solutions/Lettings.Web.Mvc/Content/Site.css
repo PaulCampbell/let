@@ -15,3 +15,5 @@ section h1 {
 }
 
 .searchtextbox { font-size:200%;  }
+
+.disabled-visible {  background-color:transparent;}
