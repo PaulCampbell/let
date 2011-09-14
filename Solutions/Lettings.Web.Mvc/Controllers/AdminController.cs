@@ -8,6 +8,7 @@ using Lettings.Domain;
 using SharpArch.Domain.PersistenceSupport;
 using Lettings.Web.Mvc.Controllers.ViewModels;
 using AutoMapper;
+using Lettings.Domain.Contracts.Queries;
 
 namespace Lettings.Web.Mvc.Controllers 
 {
@@ -58,10 +59,15 @@ namespace Lettings.Web.Mvc.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult Agents()
+        public ActionResult ViewAgent(int id)
         {
+            var agent = _agentRepository.FindOne(id);
+            var userList = _userRepository.FindAll(new EmployeesOfAgentSpecification(id)).ToList();
 
-            return View();
+            var model = AutoMapper.Mapper.Map<Agent, AgentFatView>(agent);
+            model.Users = AutoMapper.Mapper.Map<List<User>, List<UserSummary>>(userList);
+
+            return View(model);
         }
 
         public ActionResult Properties()
@@ -75,14 +81,7 @@ namespace Lettings.Web.Mvc.Controllers
             var userToImpersonate = _userRepository.FindOne(userId);
             this.ExecutingUser = userToImpersonate;
 
-            return RedirectToAction("Index", "Home");
-        }
-
-        public ActionResult EndImpersonation()
-        {
-            // clear down the impersonation session...
-            this.ExecutingUser = null;
-            return RedirectToAction("Index");
+            return RedirectToAction( "RedirectLoggedInUserOnwards", "Authentication");
         }
 
     }

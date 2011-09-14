@@ -59,6 +59,7 @@ namespace Lettings.Web.Mvc.Controllers
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
+            Session.Clear();
             return RedirectToAction("Login");
         }
 
@@ -81,6 +82,13 @@ namespace Lettings.Web.Mvc.Controllers
                     break;
             }
             return RedirectToAction("Login");
+        }
+
+        public ActionResult EndImpersonation()
+        {
+            // clear down the impersonation session...
+            this.ExecutingUser = null;
+            return RedirectToAction("RedirectLoggedInUserOnwards", "Authentication");
         }
 
     }

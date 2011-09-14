@@ -1,0 +1,35 @@
+﻿@model Lettings.Web.Mvc.Controllers.ViewModels.AgentFatView
+
+ 
+    <div class="row">
+        <h1>@Model.Name</h1>
+        <div class="span-one-third column">
+            
+
+        </div>
+        <div class="span-one-third column">
+            <h3>Offices</h3>
+            @foreach (var o in Model.Offices)
+            {
+                @o.Name
+            }
+        </div>
+        <div class="span-one-third column">
+            <h3>Users</h3>
+            @foreach (var u in Model.Users)
+            {
+                @u.FullName 
+                if (((Lettings.Domain.User)ViewBag.ExecutingUser).UserType == Lettings.Domain.UserType.admin)
+                {
+                    @Html.ActionLink("Impersonate user", "Impersonate", "Admin",  new {@userId=u.Id}, null)
+                }
+            }
+        </div>
+    </div>
+
+    <section>
+        <h1>Properties</h1>
+
+
+        @Html.ActionLink("Add Property", "AddProperty", null, new {@class="btn primary large" });
+    </section>

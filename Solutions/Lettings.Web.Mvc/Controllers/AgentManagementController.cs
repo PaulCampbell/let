@@ -12,7 +12,7 @@ using Lettings.Domain.Contracts.Queries;
 namespace Lettings.Web.Mvc.Controllers
 {
     // this is for letting managers maintain their Agent's useraccounts etc.
-    [LettingsAuthorisation(new UserType[] {  UserType.admin , UserType.manager, UserType.employee })]
+    [LettingsAuthorisation(new UserType[] {   UserType.manager, UserType.employee })]
     public class AgentManagementController : BaseController
     {
         ILinqRepository<Agent> _agentRepository;

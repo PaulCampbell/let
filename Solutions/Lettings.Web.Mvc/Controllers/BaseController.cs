@@ -4,9 +4,11 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Lettings.Domain;
+using Lettings.Web.Mvc.Helpers.Attributes;
 
 namespace Lettings.Web.Mvc.Controllers
 {
+    [PostControllerFilter]
     public class BaseController : Controller
     {
         public void SetLoggedInUser(User user)

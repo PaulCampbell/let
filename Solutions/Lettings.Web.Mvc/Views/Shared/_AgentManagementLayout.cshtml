@@ -20,8 +20,21 @@
 </head>
 
 <body>
+    
+
+
      <div class="topbar">
       <div class="fill">
+          @if (ViewBag.ImpersonatedSession)
+            {
+              
+              <div class="alert-message block-message warning">
+                <div class="container">
+                    Impersonating @ViewBag.ExecutingUser.FullName 
+                    @Html.ActionLink("End impersonation", "EndImpersonation", "Authentication", null, new { @class = "btn" })
+                </div>
+              </div>
+            }
         <div class="container">
           <ul><li><h3>@Html.ActionLink("Agency", "Index")</h3></li>
           

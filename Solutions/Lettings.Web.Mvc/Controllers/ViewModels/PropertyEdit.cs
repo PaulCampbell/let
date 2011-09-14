@@ -56,8 +56,8 @@ namespace Lettings.Web.Mvc.Controllers.ViewModels
 
         public bool Furnished { get; set; }
 
-        public int? ParkingSpaces { get; set; }
         [DisplayName("Number of parking spaces")]
+        public int? ParkingSpaces { get; set; }
         public List<SelectListItem> ParkingSpacesOptions { get; set; }
 
         public string Summary { get; set; }

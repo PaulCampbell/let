@@ -10,6 +10,9 @@ namespace Lettings.Domain
     {
         public virtual string FirstName { get; set; }
         public virtual string LastName { get; set; }
+
+        public virtual string FullName { get { return string.Format("{0} {1}", FirstName, LastName); } }
+
         public virtual UserType UserType { get; set; }
         public virtual string HashedPassword { get; set; }
         public virtual string Email { get; set; }
