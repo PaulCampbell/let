@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Lettings.Domain;
+using Lettings.Web.Mvc.Controllers;
+using System.Web.Security;
 
 namespace Lettings.Web.Mvc.Helpers.Attributes
 {
@@ -11,20 +13,19 @@ namespace Lettings.Web.Mvc.Helpers.Attributes
     {
         public  override void OnActionExecuted(ActionExecutedContext filterContext)
         {
-              User executingUser;
-              bool impersonatedSession = false;
-              if (filterContext.HttpContext.Session["ExecutingUser"] != null)
-                {
-                   executingUser=  (User)filterContext.HttpContext.Session["ExecutingUser"];
-                   impersonatedSession = true;
-                }
-              else
-              {
-                executingUser =  (User)filterContext.HttpContext.Session["LoggedInUser"];
-              }
+            var controller = filterContext.Controller as BaseController;
+             
+              filterContext.Controller.ViewBag.ExecutingUser = controller.ExecutingUser;
+              filterContext.Controller.ViewBag.ImpersonatedSession = controller.IsImpersonatedSession() ;
+        }
 
-              filterContext.Controller.ViewBag.ExecutingUser = executingUser;
-              filterContext.Controller.ViewBag.ImpersonatedSession = impersonatedSession ;
+        public override  void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            var controller = filterContext.Controller as BaseController;
+            if (controller.ExecutingUser == null)
+            {
+                FormsAuthentication.SignOut();
+            }
         }
     }
 }

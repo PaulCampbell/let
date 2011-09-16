@@ -1,10 +1,14 @@
 ﻿@model Lettings.Web.Mvc.Controllers.ViewModels.AgentFatView
 
  
-    <div class="row">
-        <h1>@Model.Name</h1>
-        <div class="span-one-third column">
-            
+    <div >
+        
+        <div class="clearfix">
+            <h1>@Model.Name</h1>
+            @if(!string.IsNullOrEmpty(Model.PictureUrl))
+            {
+                <img src='@Model.PictureUrl' alt='@Model.Name' style="float:left;" />
+            }
 
         </div>
         <div class="span-one-third column">

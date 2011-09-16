@@ -34,5 +34,15 @@ namespace Lettings.Web.Mvc.Controllers
             set { Session["ExecutingUser"] = value; }
         }
 
+        public bool IsImpersonatedSession()
+        {
+            if (Session["ExecutingUser"] == null)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
     }
 }

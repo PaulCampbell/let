@@ -59,7 +59,7 @@
                  fileName =  Path.GetFileName(string.Format("{0}{1}",hpf.FileName , DateTime.Now.ToString()));
 
                 savedFileName = Path.Combine(
-                  AppDomain.CurrentDomain.BaseDirectory + "/Content/img/agentLogos/", fileName));
+                  AppDomain.CurrentDomain.BaseDirectory + "/Content/img/agentLogos/", fileName);
                   hpf.SaveAs(savedFileName);
 
                   

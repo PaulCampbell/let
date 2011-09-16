@@ -4,5 +4,12 @@
     Layout = "~/Views/Shared/_AgentManagementLayout.cshtml";
 }
 <div class="containerPadding">
+
+     <div class="breadcrumbs clearfix">
+        <ul>
+            <li>@Html.ActionLink("Admin home", "Index", "Admin")</li>
+            <li> > @Model.Name</li>
+        </ul>
+    </div>
     @{Html.RenderPartial("AgentView", Model);}
 </div>
