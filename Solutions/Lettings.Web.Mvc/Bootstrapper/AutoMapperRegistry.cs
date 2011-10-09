@@ -18,6 +18,9 @@ namespace Lettings.Web.Mvc.Bootstrapper
             Mapper.CreateMap<PhoneNumber, PhoneNumberView>();
             Mapper.CreateMap<Office, OfficeView>();
             Mapper.CreateMap<User, UserSummary>();
+                Mapper.CreateMap<RentalProperty, PropertyEdit>()
+               .ForMember(dest => dest.OfficeId, opt => opt.MapFrom(src => src.ManagingOffice.Id));
+
         }
     }
 }

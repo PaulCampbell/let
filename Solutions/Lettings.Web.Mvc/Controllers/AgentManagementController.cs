@@ -17,12 +17,17 @@ namespace Lettings.Web.Mvc.Controllers
     {
         ILinqRepository<Agent> _agentRepository;
         ILinqRepository<User> _userRepository;
+        ILinqRepository<Office> _officeRepository;
+        ILinqRepository<RentalProperty> _propertyRepository;
 
         public AgentManagementController(ILinqRepository<Agent> agentRepository,
-             ILinqRepository<User> userRepository)
+             ILinqRepository<User> userRepository, ILinqRepository<Office> officeRepository,
+            ILinqRepository<RentalProperty> propertyRepository)
         {
             _agentRepository = agentRepository;
             _userRepository = userRepository;
+            _officeRepository = officeRepository;
+            _propertyRepository = propertyRepository;
         }
         
         [HttpGet]
@@ -65,6 +70,32 @@ namespace Lettings.Web.Mvc.Controllers
         [Transation]
         public ActionResult AddProperty()
         {
+            var offices = _officeRepository.FindAll(new OfficesOfAgentSpecification(this.ExecutingUser.Agent.Id));
+            var officeOptions = new List<SelectListItem>();
+            
+            foreach (var o in offices)
+            {
+                officeOptions.Add(new SelectListItem { Value = o.Id.ToString(), Text = o.Name });
+            }
+
+
+            return View();
+        }
+
+        [HttpPost]
+        [Transation]
+        public ActionResult AddProperty(PropertyEdit property)
+        {
+            if(!ModelState.IsValid)
+            {
+                return View(property);
+            }
+
+            // we're valid... add the property
+            var p = AutoMapper.Mapper.Map<PropertyEdit, RentalProperty>(property);
+            //  var office = _officeRepository.FindOne(property.OfficeId);
+
+            _propertyRepository.Save(p);
             return View();
         }
 
@@ -74,6 +105,22 @@ namespace Lettings.Web.Mvc.Controllers
         {
 
             return PartialView();
+        }
+
+
+        [HttpGet]
+        [Transation]
+        public ActionResult Account()
+        {
+            var agentID = this.ExecutingUser.Agent.Id;
+
+            var agent = _agentRepository.FindOne(agentID);
+            var userList = _userRepository.FindAll(new EmployeesOfAgentSpecification(agentID)).ToList();
+
+            var model = AutoMapper.Mapper.Map<Agent, AgentFatView>(agent);
+            model.Users = AutoMapper.Mapper.Map<List<User>, List<UserSummary>>(userList);
+
+            return View(model);
         }
 
     }

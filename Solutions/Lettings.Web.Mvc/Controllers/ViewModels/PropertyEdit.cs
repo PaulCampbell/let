@@ -11,6 +11,10 @@ namespace Lettings.Web.Mvc.Controllers.ViewModels
     public class PropertyEdit
     {
         [Required]
+        public int OfficeId { get; set; }
+        public List<SelectListItem> OfficeOptions { get; set; }
+
+        [Required]
         public string Postcode { get; set; }
 
         [Required]
@@ -81,6 +85,15 @@ namespace Lettings.Web.Mvc.Controllers.ViewModels
             PropertyStatus = PropertyStatus.OffMarketUntenanted;
             PropertyType = PropertyType.Unknown;
 
+
+            // set the correct office
+            foreach (var o in OfficeOptions)
+            {
+                if (int.Parse(o.Value) == OfficeId)
+                {
+                    o.Selected = true;
+                }
+            }
 
 
             // drop down values...

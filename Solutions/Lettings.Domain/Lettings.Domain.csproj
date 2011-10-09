@@ -82,6 +82,7 @@
       <Link>Properties\CommonAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="Agent.cs" />
+    <Compile Include="Contracts\Queries\OfficesOfAgentSpecification.cs" />
     <Compile Include="Contracts\Queries\EmployeesOfAgentSpecification.cs" />
     <Compile Include="Contracts\Queries\UserByEmailSpecification.cs" />
     <Compile Include="DatedPropertyNote.cs" />

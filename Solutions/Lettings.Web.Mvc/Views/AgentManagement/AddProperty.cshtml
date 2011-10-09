@@ -4,7 +4,8 @@
 }
 <div class="containerPadding">
 <h2>Add Property</h2>
-
-    @Html.Partial("PropertyForm", new Lettings.Web.Mvc.Controllers.ViewModels.PropertyEdit())
-
+    @{Html.BeginForm("AddProperty", "AgentManagement");}
+    
+        @Html.Partial("PropertyForm", new Lettings.Web.Mvc.Controllers.ViewModels.PropertyEdit())
+    @{Html.EndForm();}
 </div>

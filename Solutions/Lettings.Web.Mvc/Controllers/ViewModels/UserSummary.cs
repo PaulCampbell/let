@@ -12,5 +12,6 @@ namespace Lettings.Web.Mvc.Controllers.ViewModels
         public string LastName { get; set; }
         public string FullName { get { return string.Format("{0} {1}", FirstName, LastName); } }
         public string EmailAddress { get; set; }
+        public string UserType { get; set; }
     }
 }
