@@ -1,0 +1,43 @@
+﻿@model Lettings.Web.Mvc.Controllers.ViewModels.OfficeView
+  
+  <div class="clearfix>
+  @Html.LabelFor(x=>x.Name)
+      <div class="form">
+      @Html.TextBoxFor(x=>x.Name) @Html.Hidden("OfficeId", Model.Id) 
+      </div>
+  </div>
+
+ <div class="clearfix>
+  @Html.LabelFor(x=>x.HouseNumber)
+      <div class="form">
+      @Html.TextBoxFor(x=>x.HouseNumber) 
+      </div>
+  </div>
+
+   <div class="clearfix>
+  @Html.LabelFor(x=>x.AddressLine1)
+      <div class="form">
+      @Html.TextBoxFor(x => x.AddressLine1) 
+      </div>
+  </div>
+
+     <div class="clearfix>
+  @Html.LabelFor(x=>x.AddressLine2)
+      <div class="form">
+      @Html.TextBoxFor(x => x.AddressLine2) 
+      </div>
+  </div>
+
+     <div class="clearfix>
+  @Html.LabelFor(x=>x.Town)
+      <div class="form">
+      @Html.TextBoxFor(x => x.Town) 
+      </div>
+  </div>
+
+ <div class="clearfix>
+  @Html.LabelFor(x=>x.Postcode)
+      <div class="form">
+      @Html.TextBoxFor(x => x.Postcode) 
+      </div>
+  </div>

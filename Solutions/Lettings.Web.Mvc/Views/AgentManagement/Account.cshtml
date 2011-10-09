@@ -1,0 +1,9 @@
+﻿@model Lettings.Web.Mvc.Controllers.ViewModels.AgentFatView
+
+@{
+    ViewBag.Title = "Account management";
+    Layout = "~/Views/Shared/_AgentManagementLayout.cshtml";
+}
+<div class="containerPadding">
+    @{Html.RenderPartial("AgentEdit", Model);}
+</div>

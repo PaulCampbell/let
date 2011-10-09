@@ -1,0 +1,107 @@
+﻿@model Lettings.Web.Mvc.Controllers.ViewModels.AgentFatView
+
+ 
+    <div >
+        
+        <div class="clearfix">
+            <h1>@Model.Name</h1>
+            @if(!string.IsNullOrEmpty(Model.PictureUrl))
+            {
+                <img src='@Model.PictureUrl' alt='@Model.Name' style="float:left;" />
+            }
+
+        </div>
+        
+        <div class="one-third column">
+            <h3>Offices</h3>
+            <ul class="inline-edit-list">
+            @foreach (var o in Model.Offices)
+            {
+                <li>
+                    <div class="view-state">@o.Name 
+                        <a href="#" class="edit-link hide">edit</a>
+                    </div>
+                    <div class="edit-state hide toggle">
+                        @{Html.RenderPartial("OfficeForm", o);}
+                        <div class="clearfix actions">
+                        <a href="#" class="edit-office-link btn primary">Update</a>
+                        <a href="#" class="cancel-edit-state btn">Cancel</a>
+                        </div>
+                    </div>
+                </li>
+            }
+            </ul>
+            
+            <a href="#" id="add-office">Add office</a>
+            <div id="add-office-form" class="hide">
+                @{Html.RenderPartial("OfficeForm", new Lettings.Web.Mvc.Controllers.ViewModels.OfficeView());}
+                <div class="clearfix actions">
+                <a href="#" class="add-office-link btn primary">Add</a>
+                <a href="#" class="cancel-add-office btn">Cancel</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="one-third column">
+            <h3>Users</h3>
+            @foreach (var u in Model.Users)
+            {
+                <span>
+                @u.FullName - @u.UserType
+                </span>
+           if (((Lettings.Domain.User)ViewBag.ExecutingUser).UserType == Lettings.Domain.UserType.admin)
+           {
+                    @Html.ActionLink("Impersonate user", "Impersonate", "Admin", new { @userId = u.Id }, new { @class = "btn" })
+           }
+            }
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('.hide').hide();
+
+            $('#add-office').click(function () {
+                $(this).hide();
+                $('#add-office-form').show('fast');
+
+            });
+
+            $('.cancel-add-office').click(function () {
+                $('#add-office').show();
+                $('#add-office-form').hide('fast');
+            });
+
+
+
+            // common inline editable list stuff...
+            $('.inline-edit-list li').hover(function () {
+                $(this).find('.edit-link').toggle();
+                $(this).addClass('hover');
+            });
+
+            $('.edit-link').click(function () {
+                ToggleEditState(true, $(this));
+            });
+
+            $('.cancel-edit-state').click(function () {
+                ToggleEditState(false, $(this));
+            });
+            //
+
+        });
+
+        // TODO: Move into "Crockford's" module...
+         // ALso: MAKE LESS BRITTLE - It's shit at the moment!
+         function ToggleEditState(showEditState, clickedLink) {
+             if (showEditState) {
+                 clickedLink.parent('div').hide();
+                 clickedLink.parent('div').parent('li').find('.edit-state').show('fast');
+             }
+             else {
+                 clickedLink.parent().parent('.edit-state').hide('fast');
+                 clickedLink.parent('div').parent('div').parent('li').find('.view-state').show();
+             }
+        };
+    </script>
+  
