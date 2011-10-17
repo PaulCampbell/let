@@ -77,8 +77,7 @@ namespace Lettings.Web.Mvc.Controllers
             {
                 officeOptions.Add(new SelectListItem { Value = o.Id.ToString(), Text = o.Name });
             }
-
-
+          
             return View();
         }
 
@@ -93,7 +92,7 @@ namespace Lettings.Web.Mvc.Controllers
 
             // we're valid... add the property
             var p = AutoMapper.Mapper.Map<PropertyEdit, RentalProperty>(property);
-            //  var office = _officeRepository.FindOne(property.OfficeId);
+            var office = _officeRepository.FindOne(property.OfficeId);
 
             _propertyRepository.Save(p);
             return View();

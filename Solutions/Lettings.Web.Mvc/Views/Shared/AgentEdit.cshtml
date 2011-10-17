@@ -81,27 +81,27 @@
             });
 
             $('.edit-link').click(function () {
-                ToggleEditState(true, $(this));
+                Common.ToggleEditState(true, $(this));
             });
 
             $('.cancel-edit-state').click(function () {
-                ToggleEditState(false, $(this));
+                Common.ToggleEditState(false, $(this));
             });
             //
 
         });
 
-        // TODO: Move into "Crockford's" module...
-         // ALso: MAKE LESS BRITTLE - It's shit at the moment!
-         function ToggleEditState(showEditState, clickedLink) {
-             if (showEditState) {
-                 clickedLink.parent('div').hide();
-                 clickedLink.parent('div').parent('li').find('.edit-state').show('fast');
-             }
-             else {
-                 clickedLink.parent().parent('.edit-state').hide('fast');
-                 clickedLink.parent('div').parent('div').parent('li').find('.view-state').show();
-             }
-        };
+//        // TODO: Move into "Crockford's" module...
+//         // ALso: MAKE LESS BRITTLE - It's shit at the moment!
+//         function ToggleEditState(showEditState, clickedLink) {
+//             if (showEditState) {
+//                 clickedLink.parent('div').hide();
+//                 clickedLink.parent('div').parent('li').find('.edit-state').show('fast');
+//             }
+//             else {
+//                 clickedLink.parent().parent('.edit-state').hide('fast');
+//                 clickedLink.parent('div').parent('div').parent('li').find('.view-state').show();
+//             }
+//        };
     </script>
   

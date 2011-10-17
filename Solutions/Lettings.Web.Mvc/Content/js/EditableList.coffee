@@ -1,0 +1,3 @@
+class EditableList
+  constructor: (@listId) ->
+

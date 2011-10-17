@@ -82,6 +82,7 @@ namespace Lettings.Web.Mvc.Controllers.ViewModels
 
         public PropertyEdit()
         {
+
             PropertyStatus = PropertyStatus.OffMarketUntenanted;
             PropertyType = PropertyType.Unknown;
 
